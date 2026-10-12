@@ -20,7 +20,7 @@ CATEGORIES = OrderedDict([
         'desc': 'Convert between Markdown, Word, PDF and HTML, write Markdown with a live preview and build Markdown tables. '
                 'Free, private and no sign-up.',
         'lead': 'Convert between Markdown, Word, PDF and HTML, or write and format Markdown.',
-        'badge': '100% private — files never leave your browser', 'privacy_faq': FILES_FAQ,
+        'badge': 'Your files stay on your device — nothing is uploaded', 'privacy_faq': FILES_FAQ,
         'about': ['These tools convert documents on your own device. Markdown becomes a real Word file, PDF or web page, '
                   'and Word, PDF and HTML files turn back into clean Markdown that you can edit anywhere.',
                   'Nothing is uploaded, so they are safe for drafts, contracts and other private documents.'],
@@ -32,7 +32,7 @@ CATEGORIES = OrderedDict([
         'desc': 'Merge, split, reorder and rotate PDF pages, compress a PDF to 100 KB or 200 KB, turn images into a PDF and '
                 'save PDF pages as JPG. Free and private.',
         'lead': 'Merge, split, rotate and compress PDFs, turn images into a PDF, or save PDF pages as images.',
-        'badge': '100% private — files never leave your browser', 'privacy_faq': FILES_FAQ,
+        'badge': 'Your files stay on your device — nothing is uploaded', 'privacy_faq': FILES_FAQ,
         'about': ['Most online PDF tools upload your file to a server. These do the work inside your browser, which makes '
                   'them suitable for ID proofs, mark sheets, bank statements and signed documents.',
                   'Use the compress tool when a form or portal sets an upload limit such as 100 KB or 200 KB.'],
@@ -44,7 +44,7 @@ CATEGORIES = OrderedDict([
         'desc': 'Compress and resize images to 20 KB or 50 KB, convert JPG, PNG and WebP, crop photos, and make passport-size '
                 'photos and signatures for online forms.',
         'lead': 'Compress, resize, convert and crop images, or prepare a photo and signature for an online form.',
-        'badge': '100% private — images never leave your browser', 'privacy_faq': FILES_FAQ,
+        'badge': 'Your images stay on your device — nothing is uploaded', 'privacy_faq': FILES_FAQ,
         'about': ['Online application forms usually ask for a photo and signature of an exact pixel size and a file size '
                   'limit in KB. These tools produce exactly that, without uploading your picture to anyone.',
                   'You can also compress or convert a whole batch of images at once and download them as a ZIP.'],
@@ -857,34 +857,66 @@ TOOLS = [
          group='Generate', nav='Lorem & sample data'),
 ]
 
+OWNER = 'Apna Free Tools'
+CONTACT_EMAIL = 'himanshu.digital684@gmail.com'
+EMAIL_LINK = '<a href="mailto:%s">%s</a>' % (CONTACT_EMAIL, CONTACT_EMAIL)
+
 STATIC_PAGES = [
     {'slug': 'about', 'name': 'About ApnaFreeTools',
      'title': 'About ApnaFreeTools',
      'desc': 'ApnaFreeTools is a collection of free online tools for PDFs, images, documents, calculations and code that run in your browser.',
      'body': [
          '<p>ApnaFreeTools is a collection of free online tools for everyday tasks: getting a photo under a form’s size limit, '
-         'merging PDFs, converting documents, working out an EMI or decoding a token.</p>',
+         'merging PDFs, converting documents, working out an EMI or decoding a token. It is run by %s.</p>' % OWNER,
          '<h2>How the tools work</h2>',
          '<p>Every tool runs inside your browser. Files you add and text you type are processed on your own device and are not '
          'uploaded to a server. That is why there is no sign-up, no queue and no watermark.</p>',
          '<h2>What to keep in mind</h2>',
          '<p>The calculators give estimates and are not financial or tax advice. Form photo and signature presets are common '
          'sizes, not official specifications; always follow the instructions on your own form.</p>',
+         '<h2>Get in touch</h2>',
+         '<p>Found a problem or want a tool added? Write to %s or see the <a href="/contact/">contact page</a>.</p>' % EMAIL_LINK,
      ]},
-    {'slug': 'privacy', 'name': 'Privacy',
-     'title': 'Privacy – ApnaFreeTools',
-     'desc': 'How ApnaFreeTools handles your data: files and text are processed in your browser and are not uploaded.',
+    {'slug': 'contact', 'name': 'Contact',
+     'title': 'Contact – ApnaFreeTools',
+     'desc': 'Contact Apna Free Tools to report a problem, suggest a new tool or ask a question about the site.',
      'body': [
+         '<p>We read every message. Write to us if a tool gives a wrong result, a file will not open, or there is a tool you '
+         'would like us to build.</p>',
+         '<h2>Email</h2>',
+         '<p>%s</p>' % EMAIL_LINK,
+         '<h2>Reporting a problem</h2>',
+         '<p>It helps to tell us which tool you were using, what you expected, what happened instead, and which phone or '
+         'browser you were on. Please do not send passwords, ID documents or other sensitive files; a description is enough.</p>',
+     ]},
+    {'slug': 'privacy', 'name': 'Privacy policy',
+     'title': 'Privacy Policy – ApnaFreeTools',
+     'desc': 'How ApnaFreeTools handles your data: files and text are processed in your browser, plus how cookies and advertising work.',
+     'body': [
+         '<p>This policy explains what happens to your information when you use ApnaFreeTools, which is run by %s. '
+         'Last updated: %s.</p>' % (OWNER, '12 October 2026'),
          '<h2>Your files and text</h2>',
-         '<p>Files you add and text you type are processed in your browser. They are not uploaded to or stored on our servers.</p>',
+         '<p>Files you add and text you type into the tools are processed in your browser. They are not uploaded to or stored on our servers.</p>',
          '<h2>What is stored on your device</h2>',
          '<p>The Markdown editor and the table generator save your work in your browser’s local storage so it is there when you '
          'return. It stays on your device, and clearing your browser data removes it.</p>',
-         '<h2>Third-party services</h2>',
-         '<p>Some tools load open-source code libraries from the jsDelivr content delivery network when you use them. Like any '
-         'website you visit, that network receives your IP address and browser details in order to deliver the files.</p>',
-         '<h2>Accounts, cookies and tracking</h2>',
-         '<p>There are no accounts. This site does not currently use advertising or analytics cookies. If that changes, this '
-         'page will be updated before it does.</p>',
+         '<h2>Advertising and cookies</h2>',
+         '<p>This site may show advertisements provided by Google AdSense. Third-party vendors, including Google, use cookies to '
+         'serve ads based on your earlier visits to this and other websites. Google’s advertising cookies let it and its '
+         'partners show you ads based on those visits.</p>',
+         '<p>You can turn off personalised advertising in <a href="https://www.google.com/settings/ads" rel="noopener">Google’s Ads Settings</a>, '
+         'and you can opt out of some other vendors’ use of cookies at <a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>. '
+         'More detail is in <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from sites that use its services</a>.</p>',
+         '<p>Advertising cookies relate to your visit to the site. They do not give advertisers access to the files or text you put into the tools.</p>',
+         '<h2>Other third-party services</h2>',
+         '<p>Some tools load open-source code libraries from the jsDelivr content delivery network when you use them, and the site '
+         'is delivered by our hosting provider. Like any website you visit, these services receive your IP address and browser '
+         'details in order to deliver the pages.</p>',
+         '<h2>Accounts</h2>',
+         '<p>There are no accounts and no sign-up, and we do not ask for your name, phone number or email to use the tools.</p>',
+         '<h2>Children</h2>',
+         '<p>The site is intended for a general audience and is not directed at children under 13.</p>',
+         '<h2>Changes and contact</h2>',
+         '<p>We will update this page when the way the site works changes. Questions about privacy can be sent to %s.</p>' % EMAIL_LINK,
      ]},
 ]

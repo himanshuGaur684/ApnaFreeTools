@@ -130,6 +130,7 @@ def footer():
       <nav class="footer-nav" aria-label="Footer">
 {cats}
         <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
         <a href="/privacy/">Privacy</a>
       </nav>
     </div>
