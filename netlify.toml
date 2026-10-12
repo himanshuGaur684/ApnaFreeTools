@@ -1,0 +1,4 @@
+# Netlify builds the site from the source files and publishes the generated folder.
+[build]
+  command = "python3 build.py"
+  publish = "dist"

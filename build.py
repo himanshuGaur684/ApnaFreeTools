@@ -18,7 +18,9 @@ from site_content import CATEGORIES, TOOLS, STATIC_PAGES
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, 'dist')
-SITE = 'https://apnafreetools.com'
+# The site's public address, used in canonical links and the sitemap. Netlify provides it as URL,
+# so a deploy on a free address or on the real domain each points at itself.
+SITE = (os.environ.get('SITE_URL') or os.environ.get('URL') or 'https://apnafreetools.com').rstrip('/')
 BRAND = 'ApnaFreeTools'
 VERSION = '34'  # bump when css/js change so browsers fetch the new files
 TODAY = datetime.date.today().isoformat()
