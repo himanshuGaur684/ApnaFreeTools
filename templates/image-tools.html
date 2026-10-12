@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Image Tools: Compress, Resize, Convert, Crop | ApnaFreeTools</title>
+  <meta name="description" content="Compress and resize images to 20 KB, 50 KB or any size, convert between JPG, PNG and WebP, crop photos, and make passport-size photos and signatures for government and exam forms. Free, private, no sign-up.">
+  <link rel="canonical" href="https://apnafreetools.com/image-tools.html">
+  <meta property="og:title" content="Free Image Tools: Compress, Resize, Convert, Crop — ApnaFreeTools">
+  <meta property="og:description" content="Compress and resize images to 20 KB, 50 KB or any size, convert between JPG, PNG and WebP, crop photos, and make passport-size photos and signatures for government and exam forms. Free, private, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/image-tools.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" aria-current="page" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          100% private — images never leave your browser
+        </span>
+        <h1>Free Image Tools</h1>
+        <p class="lead">Compress, resize, convert and crop images, or make a passport-size photo or signature for an online form.</p>
+      </div>
+    </section>
+
+    <section class="container" id="tools" aria-label="Image tools">
+      <div class="tool">
+        <div class="tool-top">
+          <div class="segmented seg-4" role="tablist" aria-label="Image tool">
+            <button type="button" role="tab" id="tab-compress" class="seg is-active" aria-selected="true" aria-controls="panel-compress" data-mode="compress">Compress &amp; Resize <small>to 20 KB, 50 KB…</small></button>
+            <button type="button" role="tab" id="tab-convert" class="seg" aria-selected="false" aria-controls="panel-convert" data-mode="convert" tabindex="-1">Convert <small>JPG, PNG, WebP</small></button>
+            <button type="button" role="tab" id="tab-crop" class="seg" aria-selected="false" aria-controls="panel-crop" data-mode="crop" tabindex="-1">Crop <small>free or fixed ratio</small></button>
+            <button type="button" role="tab" id="tab-form-photo" class="seg" aria-selected="false" aria-controls="panel-form-photo" data-mode="form-photo" tabindex="-1">Photo &amp; Signature <small>for forms</small></button>
+          </div>
+        </div>
+
+        <!-- Compress & Resize -->
+        <div class="panel" id="panel-compress" role="tabpanel" aria-labelledby="tab-compress">
+          <div class="split">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose images</h2>
+              <div class="dropzone dz-block" id="icDrop" role="button" tabindex="0" aria-label="Drop images here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg>
+              <p class="dz-title">Drop images here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="icFile" accept="image/*" multiple hidden>
+            </div>
+              <div class="file-card" id="icFileCard" hidden>
+              <span class="file-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg></span>
+              <div class="file-info"><strong id="icFileName"></strong><span id="icFileMeta"></span></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="icChange">Change</button>
+            </div>
+              <p class="note">Add one image or several. JPG, PNG, WebP, GIF and BMP are supported.</p>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Choose the size</h2>
+              <div class="form-field">File size
+                <span class="chips chips-flush" id="icChips">
+                  <button type="button" class="chip" data-kb="0">Any</button>
+                  <button type="button" class="chip" data-kb="20">20 KB</button>
+                  <button type="button" class="chip is-active" data-kb="50">50 KB</button>
+                  <button type="button" class="chip" data-kb="100">100 KB</button>
+                  <button type="button" class="chip" data-kb="200">200 KB</button>
+                  <button type="button" class="chip">Custom</button>
+                  <input type="number" class="field field-kb" id="icTarget" min="1" placeholder="Size in KB" aria-label="Target size in KB" hidden>
+                </span>
+              </div>
+              <label class="form-field" id="icQualityRow" hidden>Quality <output id="icQualityValue"></output>
+                <input type="range" id="icQuality" min="10" max="100" value="80">
+              </label>
+              <div class="form-grid">
+                <label class="form-field">Dimensions <select class="field" id="icResize"><option value="none">Keep original</option><option value="fit">Fit within width × height</option><option value="percent">Scale by percentage</option></select></label>
+                <label class="form-field">Save as <select class="field" id="icFormat"><option value="jpg">JPG — best for forms</option><option value="webp">WebP — smallest</option><option value="png">PNG</option><option value="keep">Same as original</option></select></label>
+              </div>
+              <div class="form-grid" id="icFitRow" hidden>
+                <label class="form-field">Max width (px) <input type="number" class="field" id="icW" min="1" placeholder="e.g. 1200"></label>
+                <label class="form-field">Max height (px) <input type="number" class="field" id="icH" min="1" placeholder="optional"></label>
+              </div>
+              <div class="form-grid" id="icPercentRow" hidden>
+                <label class="form-field">Scale (%) <input type="number" class="field" id="icPct" min="1" max="400" value="50"></label>
+              </div>
+              <div class="progress" id="icProgress" hidden><i></i></div>
+              <div class="run-row">
+              <button type="button" class="btn btn-primary" id="icRun" disabled><span>Compress</span></button>
+              <button type="button" class="btn btn-secondary" id="icZip" hidden>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download all (ZIP)</span>
+            </button>
+              </div>
+            </div>
+          </div>
+          <div class="pg-grid pg-results" id="icResults"></div>
+        </div>
+
+        <!-- Convert -->
+        <div class="panel" id="panel-convert" role="tabpanel" aria-labelledby="tab-convert" hidden>
+          <div class="split">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose images</h2>
+              <div class="dropzone dz-block" id="cvDrop" role="button" tabindex="0" aria-label="Drop images here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg>
+              <p class="dz-title">Drop images here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="cvFile" accept="image/*" multiple hidden>
+            </div>
+              <div class="file-card" id="cvFileCard" hidden>
+              <span class="file-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg></span>
+              <div class="file-info"><strong id="cvFileName"></strong><span id="cvFileMeta"></span></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="cvChange">Change</button>
+            </div>
+              <p class="note">Add one image or several. They are all converted to the format you pick.</p>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Choose the format</h2>
+              <label class="form-field">Convert to <select class="field" id="cvFormat"><option value="jpg">JPG — photos, works everywhere</option><option value="png">PNG — sharp graphics, keeps transparency</option><option value="webp">WebP — smallest files for websites</option></select></label>
+              <label class="form-field" id="cvQualityRow">Quality <output id="cvQualityValue"></output>
+                <input type="range" id="cvQuality" min="10" max="100" value="90">
+              </label>
+              <div class="progress" id="cvProgress" hidden><i></i></div>
+              <div class="run-row">
+              <button type="button" class="btn btn-primary" id="cvRun" disabled><span>Convert</span></button>
+              <button type="button" class="btn btn-secondary" id="cvZip" hidden>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download all (ZIP)</span>
+            </button>
+              </div>
+            </div>
+          </div>
+          <div class="pg-grid pg-results" id="cvResults"></div>
+        </div>
+
+        <!-- Crop -->
+        <div class="panel" id="panel-crop" role="tabpanel" aria-labelledby="tab-crop" hidden>
+          <div class="split split-wide">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose an image and drag the box</h2>
+              <div class="dropzone dz-block" id="crDrop" role="button" tabindex="0" aria-label="Drop an image here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg>
+              <p class="dz-title">Drop an image here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="crFile" accept="image/*" hidden>
+            </div>
+              <div id="crEditor" hidden>
+              <div class="crop-stage" id="crStage"></div>
+              <div class="crop-tools">
+                <button type="button" class="btn btn-ghost btn-sm" id="crRotate">↻ Rotate</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="crChange">Change image</button>
+                <span class="pane-meta bar-end" id="crInfo"></span>
+              </div>
+            </div>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Shape and save</h2>
+              <div class="form-field">Shape
+                <span class="chips chips-flush" id="crRatios">
+                  <button type="button" class="chip is-active" data-ratio="0">Free</button>
+                  <button type="button" class="chip" data-ratio="1">Square</button>
+                  <button type="button" class="chip" data-ratio="1.3333">4:3</button>
+                  <button type="button" class="chip" data-ratio="0.75">3:4</button>
+                  <button type="button" class="chip" data-ratio="1.7778">16:9</button>
+                  <button type="button" class="chip" data-ratio="0.5625">9:16</button>
+                </span>
+              </div>
+              <label class="form-field">Save as <select class="field" id="crFormat"><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option></select></label>
+              <div class="run-row">
+              <button type="button" class="btn btn-primary" id="crDownload" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download cropped image</span>
+            </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form photo & signature -->
+        <div class="panel" id="panel-form-photo" role="tabpanel" aria-labelledby="tab-form-photo" hidden>
+          <div class="split split-wide">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose a photo or signature and frame it</h2>
+              <div class="dropzone dz-block" id="phDrop" role="button" tabindex="0" aria-label="Drop a photo or signature here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 15-4.5-4.5L7 20"/></svg>
+              <p class="dz-title">Drop a photo or signature here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="phFile" accept="image/*" hidden>
+            </div>
+              <div id="phEditor" hidden>
+              <div class="crop-stage" id="phStage"></div>
+              <div class="crop-tools">
+                <button type="button" class="btn btn-ghost btn-sm" id="phRotate">↻ Rotate</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="phChange">Change image</button>
+                <span class="pane-meta bar-end" id="phInfo"></span>
+              </div>
+            </div>
+              <div class="result" id="phResult" hidden>
+                <div class="result-row">
+                  <img id="phPreview" class="result-img" alt="Finished image">
+                  <div>
+                    <p class="result-big" id="phSizes"></p>
+                    <p class="result-sub" id="phNote"></p>
+                    <button type="button" class="btn btn-primary" id="phDownload">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download JPG</span>
+            </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Choose the size your form asks for</h2>
+              <label class="form-field">Preset
+                <select class="field" id="phPreset">
+                  <optgroup label="Photos">
+                    <option value="exam-photo">Exam form photo — 200 × 230 px, 20–50 KB</option>
+                    <option value="passport-35x45">Passport-size photo — 35 × 45 mm</option>
+                    <option value="passport-2x2">Passport / visa photo — 2 × 2 inch</option>
+                    <option value="photo-25x35">Photo — 25 × 35 mm</option>
+                    <option value="stamp-20x25">Stamp-size photo — 20 × 25 mm</option>
+                  </optgroup>
+                  <optgroup label="Signatures">
+                    <option value="exam-signature">Exam form signature — 140 × 60 px, 10–20 KB</option>
+                    <option value="signature-wide">Signature — 300 × 100 px, under 30 KB</option>
+                  </optgroup>
+                  <option value="custom">Custom size</option>
+                </select>
+              </label>
+              <div class="form-grid form-grid-3">
+                <label class="form-field">Width <input type="number" class="field" id="phW" min="1" step="any"></label>
+                <label class="form-field">Height <input type="number" class="field" id="phH" min="1" step="any"></label>
+                <label class="form-field">Unit <select class="field" id="phUnit"><option value="px">px</option><option value="mm">mm</option><option value="cm">cm</option><option value="in">inch</option></select></label>
+              </div>
+              <div class="form-grid form-grid-3">
+                <label class="form-field">DPI <input type="number" class="field" id="phDpi" min="50" max="1200"></label>
+                <label class="form-field">Min KB <input type="number" class="field" id="phMin" min="0" placeholder="none"></label>
+                <label class="form-field">Max KB <input type="number" class="field" id="phMax" min="0" placeholder="none"></label>
+              </div>
+              <p class="note">Presets are common sizes, and forms differ. Check your form’s instructions and change any number here to match.</p>
+              <div class="run-row">
+              <button type="button" class="btn btn-primary" id="phCreate" disabled><span>Create image</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cards">
+        <article class="card"><h3>Hit the KB limit</h3><p>Pick 20 KB, 50 KB or any size and the tool finds the best quality that fits under it.</p></article>
+        <article class="card"><h3>Many at once</h3><p>Compress or convert a whole batch of images and download them together as a ZIP.</p></article>
+        <article class="card"><h3>Exact form sizes</h3><p>Set width and height in px, mm, cm or inches, with minimum and maximum file size.</p></article>
+        <article class="card"><h3>Private</h3><p>Your photos and signature are processed on your device and are never uploaded.</p></article>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>How do I resize an image to 20 KB or 50 KB?</summary><p>On the Compress &amp; Resize tab, add your image, choose 20 KB or 50 KB under “File size” and press Compress. The tool lowers the quality first and, only if needed, makes the picture slightly smaller in pixels until it fits.</p></details>
+        <details><summary>How do I make a photo and signature for an exam or government form?</summary><p>Open the Photo &amp; Signature tab, pick a preset or type the width, height and KB limits from your form, add your image and drag the box to frame it. The result has exactly the pixel size you asked for and stays within the file-size limits.</p></details>
+        <details><summary>Are the preset sizes official?</summary><p>They are sizes that forms commonly ask for, but requirements differ between organisations and change over time. Always check the instructions on your form; every number can be edited.</p></details>
+        <details><summary>My form needs a minimum file size. What if my image is too small?</summary><p>Enter the minimum in “Min KB”. If the finished image is below it, the file is padded with unused data to reach the minimum. The picture itself is not changed.</p></details>
+        <details><summary>Are my images uploaded?</summary><p>No. Everything runs in your browser, so your photos and signature never leave your device.</p></details>
+        <details><summary>Which format should I choose?</summary><p>JPG for photos and almost all online forms, PNG for graphics, screenshots and transparent backgrounds, and WebP for the smallest files on websites.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/image-tools.js?v=33"></script>
+</body>
+</html>

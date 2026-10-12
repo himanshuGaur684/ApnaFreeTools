@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Calculators for India: GST, EMI, SIP, Income Tax | ApnaFreeTools</title>
+  <meta name="description" content="Free online calculators for India: GST, loan EMI, SIP returns, income tax under the new and old regimes, age, date difference, percentage and CGPA to percentage. Instant results, no sign-up.">
+  <link rel="canonical" href="https://apnafreetools.com/calculators.html">
+  <meta property="og:title" content="Free Calculators for India: GST, EMI, SIP, Income Tax — ApnaFreeTools">
+  <meta property="og:description" content="Free online calculators for India: GST, loan EMI, SIP returns, income tax under the new and old regimes, age, date difference, percentage and CGPA to percentage. Instant results, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/calculators.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" aria-current="page" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <h1>Free Calculators <span class="swap">for India</span></h1>
+        <p class="lead">GST, EMI, SIP and income tax, plus age, dates, percentages and CGPA. Results update as you type.</p>
+      </div>
+    </section>
+
+    <section class="container" id="tools" aria-label="Calculators">
+      <div class="tool calc-tool">
+        <div class="calc-nav" role="tablist" aria-label="Calculator">
+          <span class="calc-group">Money</span>
+          <button type="button" role="tab" id="tab-gst" class="calc-tab is-active" aria-selected="true" aria-controls="panel-gst" data-mode="gst">GST</button>
+          <button type="button" role="tab" id="tab-emi" class="calc-tab" aria-selected="false" aria-controls="panel-emi" data-mode="emi" tabindex="-1">EMI</button>
+          <button type="button" role="tab" id="tab-sip" class="calc-tab" aria-selected="false" aria-controls="panel-sip" data-mode="sip" tabindex="-1">SIP</button>
+          <button type="button" role="tab" id="tab-income-tax" class="calc-tab" aria-selected="false" aria-controls="panel-income-tax" data-mode="income-tax" tabindex="-1">Income tax</button>
+          <span class="calc-group">Dates</span>
+          <button type="button" role="tab" id="tab-age" class="calc-tab" aria-selected="false" aria-controls="panel-age" data-mode="age" tabindex="-1">Age</button>
+          <button type="button" role="tab" id="tab-date-difference" class="calc-tab" aria-selected="false" aria-controls="panel-date-difference" data-mode="date-difference" tabindex="-1">Date difference</button>
+          <span class="calc-group">Study &amp; maths</span>
+          <button type="button" role="tab" id="tab-percentage" class="calc-tab" aria-selected="false" aria-controls="panel-percentage" data-mode="percentage" tabindex="-1">Percentage</button>
+          <button type="button" role="tab" id="tab-cgpa" class="calc-tab" aria-selected="false" aria-controls="panel-cgpa" data-mode="cgpa" tabindex="-1">CGPA</button>
+        </div>
+        <div class="calc-body">
+
+          <!-- GST -->
+          <div class="panel" id="panel-gst" role="tabpanel" aria-labelledby="tab-gst">
+            <div class="split">
+              <div>
+                <h2 class="calc-title">GST Calculator</h2>
+                <p class="calc-sub">Add GST to a price, or work out the GST inside a total.</p>
+                <div class="form-field">Calculation<span class="chips chips-flush" id="gstMode"><button type="button" class="chip is-active" data-value="add">Add GST</button><button type="button" class="chip" data-value="remove">Remove GST</button></span></div>
+                <label class="form-field"><span id="gstAmountLabel">Amount before GST (₹)</span><input type="number" class="field" id="gstAmount" min="0" step="any" value="10000" inputmode="decimal" data-words></label>
+                <div class="form-field">GST rate
+                  <span class="chips chips-flush" id="gstRates"><button type="button" class="chip" data-value="5">5%</button><button type="button" class="chip is-active" data-value="18">18%</button><button type="button" class="chip" data-value="40">40%</button><button type="button" class="chip" data-value="3">3%</button><button type="button" class="chip" data-value="12">12%</button><button type="button" class="chip" data-value="28">28%</button><button type="button" class="chip" data-value="custom">Custom</button><input type="number" class="field field-kb" id="gstCustom" min="0" step="any" placeholder="Rate %" aria-label="Custom GST rate" hidden></span>
+                </div>
+                <div class="form-field">Type of sale<span class="chips chips-flush" id="gstSupply"><button type="button" class="chip is-active" data-value="intra">Within the state (CGST + SGST)</button><button type="button" class="chip" data-value="inter">Between states (IGST)</button></span></div>
+                <p class="note">Since 22 September 2025 most goods and services fall under 5% or 18%, with 40% on luxury and sin goods. 12% and 28% are kept here for older invoices.</p>
+              </div>
+              <div>
+                <div class="result result-top"><p class="result-label" id="gstBigLabel"></p><p class="result-big" id="gstBig"></p></div>
+              <div class="kv">
+                <div><span>Amount before GST</span><strong id="gstNet"></strong></div>
+                <div><span id="gstTaxLabel">GST</span><strong id="gstTax"></strong></div>
+                <div id="gstCgstRow"><span id="gstCgstLabel">CGST</span><strong id="gstCgst"></strong></div>
+                <div id="gstSgstRow"><span id="gstSgstLabel">SGST</span><strong id="gstSgst"></strong></div>
+                <div id="gstIgstRow"><span id="gstIgstLabel">IGST</span><strong id="gstIgst"></strong></div>
+                <div><span>Total including GST</span><strong id="gstTotal"></strong></div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EMI -->
+          <div class="panel" id="panel-emi" role="tabpanel" aria-labelledby="tab-emi" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">EMI Calculator</h2>
+                <p class="calc-sub">Monthly instalment for a home, car or personal loan.</p>
+                <label class="form-field">Loan amount (₹)<input type="number" class="field" id="emiAmount" min="0" step="any" value="2500000" inputmode="decimal" data-words></label>
+                <label class="form-field">Interest rate (% a year)<input type="number" class="field" id="emiRate" min="0" step="any" value="8.5" inputmode="decimal"></label>
+                <div class="form-grid">
+                  <label class="form-field">Loan tenure<input type="number" class="field" id="emiTenure" min="0" step="any" value="20" inputmode="decimal"></label>
+                  <label class="form-field">Unit<select class="field" id="emiUnit"><option value="years">Years</option><option value="months">Months</option></select></label>
+                </div>
+              </div>
+              <div>
+                <div class="result result-top"><p class="result-label">Monthly EMI</p><p class="result-big" id="emiBig"></p></div>
+                <div class="ratio-bar" id="emiBar"><i></i></div>
+                <p class="legend"><span class="dot dot-a"></span>Principal <span class="dot dot-b"></span>Interest</p>
+              <div class="kv">
+                <div><span>Loan amount</span><strong id="emiPrincipal"></strong></div>
+                <div><span>Total interest</span><strong id="emiInterest"></strong></div>
+                <div><span>Total payment</span><strong id="emiTotal"></strong></div>
+              </div>
+                <details class="schedule" id="emiScheduleWrap">
+                  <summary>Year-by-year schedule</summary>
+                  <div class="table-scroll"><table class="data-table"><thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Balance</th></tr></thead><tbody id="emiSchedule"></tbody></table></div>
+                </details>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIP -->
+          <div class="panel" id="panel-sip" role="tabpanel" aria-labelledby="tab-sip" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">SIP Calculator</h2>
+                <p class="calc-sub">What a monthly SIP or a one-time investment could grow to.</p>
+                <div class="form-field">Investment type<span class="chips chips-flush" id="sipMode"><button type="button" class="chip is-active" data-value="sip">Monthly SIP</button><button type="button" class="chip" data-value="lumpsum">One-time (lumpsum)</button></span></div>
+                <label class="form-field"><span id="sipAmountLabel">Monthly investment (₹)</span><input type="number" class="field" id="sipAmount" min="0" step="any" value="5000" inputmode="decimal" data-words></label>
+                <div class="form-grid">
+                  <label class="form-field">Expected return (% a year)<input type="number" class="field" id="sipRate" min="0" step="any" value="12" inputmode="decimal"></label>
+                  <label class="form-field">Time period (years)<input type="number" class="field" id="sipYears" min="0" max="60" step="any" value="10" inputmode="decimal"></label>
+                </div>
+                <label class="form-field" id="sipStepRow">Yearly step-up (%)<input type="number" class="field" id="sipStep" min="0" step="any" value="0" inputmode="decimal"></label>
+                <p class="note">This is an illustration at a fixed return. Market returns vary from year to year and are not guaranteed.</p>
+              </div>
+              <div>
+                <div class="result result-top"><p class="result-label">Estimated value</p><p class="result-big" id="sipBig"></p><p class="result-sub" id="sipBigWords"></p></div>
+                <div class="ratio-bar" id="sipBar"><i></i></div>
+                <p class="legend"><span class="dot dot-a"></span>Invested <span class="dot dot-b"></span>Estimated returns</p>
+              <div class="kv">
+                <div><span>Amount invested</span><strong id="sipInvested"></strong></div>
+                <div><span>Estimated returns</span><strong id="sipReturns"></strong></div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Income tax -->
+          <div class="panel" id="panel-income-tax" role="tabpanel" aria-labelledby="tab-income-tax" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Income Tax Calculator</h2>
+                <p class="calc-sub">New and old regime side by side, for FY 2026-27 (rates unchanged from FY 2025-26).</p>
+                <label class="form-field">Annual income (₹)<input type="number" class="field" id="itIncome" min="0" step="any" value="1500000" inputmode="decimal" data-words></label>
+                <div class="form-grid">
+                  <label class="form-field">Age<select class="field" id="itAge"><option value="below60">Below 60</option><option value="senior">60 to 79</option><option value="superSenior">80 or above</option></select></label>
+                  <label class="check check-field"><input type="checkbox" id="itSalaried" checked> Salaried or pensioner</label>
+                </div>
+                <h3 class="sub-title">Deductions — old regime only</h3>
+                <div class="form-grid">
+                  <label class="form-field">80C (max ₹1.5 lakh)<input type="number" class="field" id="it80c" min="0" step="any" value="150000" inputmode="decimal"></label>
+                  <label class="form-field">80D health insurance<input type="number" class="field" id="it80d" min="0" step="any" value="25000" inputmode="decimal"></label>
+                  <label class="form-field">HRA exemption<input type="number" class="field" id="itHra" min="0" step="any" value="0" inputmode="decimal"></label>
+                  <label class="form-field">Home loan interest (max ₹2 lakh)<input type="number" class="field" id="itHome" min="0" step="any" value="0" inputmode="decimal"></label>
+                  <label class="form-field">NPS 80CCD(1B) (max ₹50,000)<input type="number" class="field" id="itNps" min="0" step="any" value="0" inputmode="decimal"></label>
+                  <label class="form-field">Other deductions<input type="number" class="field" id="itOther" min="0" step="any" value="0" inputmode="decimal"></label>
+                </div>
+              </div>
+              <div>
+                <div class="regimes">
+                <div class="regime" id="itNewCard">
+                  <h3>New regime</h3>
+                  <p class="regime-amt" id="itNewTotal"></p>
+                  <p class="regime-sub" id="itNewMonthly"></p>
+                  <div class="kv kv-sm">
+                    <div><span>Taxable income</span><strong id="itNewTaxable"></strong></div>
+                    <div><span>Income tax</span><strong id="itNewTax"></strong></div>
+                    <div><span>Surcharge</span><strong id="itNewSurcharge"></strong></div>
+                    <div><span>Cess (4%)</span><strong id="itNewCess"></strong></div>
+                  </div>
+                  <p class="regime-note">Standard deduction ₹75,000 if salaried. No other deductions.</p>
+                </div>
+                <div class="regime" id="itOldCard">
+                  <h3>Old regime</h3>
+                  <p class="regime-amt" id="itOldTotal"></p>
+                  <p class="regime-sub" id="itOldMonthly"></p>
+                  <div class="kv kv-sm">
+                    <div><span>Taxable income</span><strong id="itOldTaxable"></strong></div>
+                    <div><span>Income tax</span><strong id="itOldTax"></strong></div>
+                    <div><span>Surcharge</span><strong id="itOldSurcharge"></strong></div>
+                    <div><span>Cess (4%)</span><strong id="itOldCess"></strong></div>
+                  </div>
+                  <p class="regime-note">Standard deduction ₹50,000 if salaried, plus the deductions you entered.</p>
+                </div>
+                </div>
+                <p class="verdict" id="itVerdict"></p>
+                <p class="note">An estimate for resident individuals with ordinary income. It does not cover capital gains or other special-rate income, and it is not tax advice. Confirm with the Income Tax Department’s calculator or a tax professional before you file.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Age -->
+          <div class="panel" id="panel-age" role="tabpanel" aria-labelledby="tab-age" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Age Calculator</h2>
+                <p class="calc-sub">Exact age in years, months and days — handy for form cut-off dates.</p>
+                <label class="form-field">Date of birth<input type="date" class="field" id="ageDob"></label>
+                <label class="form-field">Age on<input type="date" class="field" id="ageOn"></label>
+                <p class="note">To check eligibility, set “Age on” to the cut-off date given in the notification.</p>
+              </div>
+              <div>
+                <p class="empty" id="ageEmpty"></p>
+                <div id="ageResult" hidden>
+                  <div class="result result-top"><p class="result-label">Age</p><p class="result-big result-text" id="ageBig"></p></div>
+              <div class="kv">
+                <div><span>In months</span><strong id="ageMonths"></strong></div>
+                <div><span>In weeks</span><strong id="ageWeeks"></strong></div>
+                <div><span>In days</span><strong id="ageDays"></strong></div>
+                <div><span>Born on a</span><strong id="ageBornOn"></strong></div>
+                <div><span>Next birthday</span><strong id="ageNext"></strong></div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date difference -->
+          <div class="panel" id="panel-date-difference" role="tabpanel" aria-labelledby="tab-date-difference" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Date Difference Calculator</h2>
+                <p class="calc-sub">Days between two dates, or the date a number of days away.</p>
+                <div class="form-grid">
+                  <label class="form-field">From<input type="date" class="field" id="ddFrom"></label>
+                  <label class="form-field">To<input type="date" class="field" id="ddTo"></label>
+                </div>
+                <label class="check"><input type="checkbox" id="ddInclusive"> Count the end date too</label>
+                <h3 class="sub-title">Add or subtract days</h3>
+                <div class="form-grid">
+                  <label class="form-field">Start date<input type="date" class="field" id="adFrom"></label>
+                  <label class="form-field">Days (use − to go back)<input type="number" class="field" id="adDays" step="1" value="90" inputmode="numeric"></label>
+                </div>
+                <div class="kv"><div><span>Resulting date</span><strong id="adResult"></strong></div></div>
+              </div>
+              <div>
+                <div id="ddResult">
+                  <div class="result result-top"><p class="result-label">Difference</p><p class="result-big" id="ddBig"></p></div>
+              <div class="kv">
+                <div><span>Years, months, days</span><strong id="ddYmd"></strong></div>
+                <div><span>Weeks</span><strong id="ddWeeks"></strong></div>
+                <div><span>Weekdays (Mon–Fri)</span><strong id="ddWeekdays"></strong></div>
+                <div><span>Weekend days</span><strong id="ddWeekend"></strong></div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Percentage -->
+          <div class="panel" id="panel-percentage" role="tabpanel" aria-labelledby="tab-percentage" hidden>
+            <div class="calc-single">
+              <h2 class="calc-title">Percentage Calculator</h2>
+              <p class="calc-sub">Four everyday percentage sums.</p>
+              <div class="pc-row"><span>What is</span><input type="number" class="field" id="pc1A" step="any" value="18" aria-label="Percent" inputmode="decimal"><span>% of</span><input type="number" class="field" id="pc1B" step="any" value="2500" aria-label="Number" inputmode="decimal"><span>?</span><strong class="pc-out" id="pc1Out"></strong></div>
+              <div class="pc-row"><input type="number" class="field" id="pc2A" step="any" value="45" aria-label="Part" inputmode="decimal"><span>is what percent of</span><input type="number" class="field" id="pc2B" step="any" value="60" aria-label="Whole" inputmode="decimal"><span>?</span><strong class="pc-out" id="pc2Out"></strong></div>
+              <div class="pc-row"><span>Change from</span><input type="number" class="field" id="pc3A" step="any" value="400" aria-label="Old value" inputmode="decimal"><span>to</span><input type="number" class="field" id="pc3B" step="any" value="460" aria-label="New value" inputmode="decimal"><span class="pc-note" id="pc3Note"></span><strong class="pc-out" id="pc3Out"></strong></div>
+              <div class="pc-row"><span>Marks:</span><input type="number" class="field" id="pc4A" step="any" value="438" aria-label="Marks obtained" inputmode="decimal"><span>out of</span><input type="number" class="field" id="pc4B" step="any" value="500" aria-label="Total marks" inputmode="decimal"><strong class="pc-out" id="pc4Out"></strong></div>
+            </div>
+          </div>
+
+          <!-- CGPA -->
+          <div class="panel" id="panel-cgpa" role="tabpanel" aria-labelledby="tab-cgpa" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">CGPA Converter</h2>
+                <p class="calc-sub">Convert CGPA to percentage or back, on a 10-point scale.</p>
+                <div class="form-field">Convert<span class="chips chips-flush" id="cgDirection"><button type="button" class="chip is-active" data-value="toPercent">CGPA → Percentage</button><button type="button" class="chip" data-value="toCgpa">Percentage → CGPA</button></span></div>
+                <label class="form-field"><span id="cgValueLabel">CGPA</span><input type="number" class="field" id="cgValue" min="0" step="any" value="8.4" inputmode="decimal"></label>
+                <label class="form-field">Formula<select class="field" id="cgFormula"><option value="9.5">CGPA × 9.5 (CBSE)</option><option value="10">CGPA × 10</option><option value="minus">(CGPA − 0.75) × 10</option><option value="custom">Custom multiplier</option></select></label>
+                <label class="form-field" id="cgMultiplierRow" hidden>Multiplier<input type="number" class="field" id="cgMultiplier" min="0" step="any" value="9.5" inputmode="decimal"></label>
+                <p class="note">Boards and universities use different formulas. Use the one printed on your marksheet or in your university’s rules.</p>
+                <div class="result result-top"><p class="result-label" id="cgBigLabel"></p><p class="result-big" id="cgBig"></p></div>
+              </div>
+              <div>
+                <h3 class="sub-title sub-title-first">CGPA from semester SGPAs</h3>
+                <div class="sem-head"><span></span><span>SGPA</span><span>Credits</span><span></span></div>
+                <div id="cgRows"></div>
+                <button type="button" class="btn btn-secondary btn-sm" id="cgAddRow">+ Add semester</button>
+                <div class="kv kv-gap"><div><span>Overall CGPA</span><strong id="cgOverall"></strong></div><div><span>As a percentage</span><strong id="cgOverallPercent"></strong></div></div>
+                <p class="note">Leave credits empty to give every semester the same weight.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>How is GST calculated?</summary><p>To add GST: GST = price × rate ÷ 100, and total = price + GST. To find the GST inside a total: price = total ÷ (1 + rate ÷ 100). Within a state the GST is split equally into CGST and SGST; between states it is charged as IGST.</p></details>
+        <details><summary>How is EMI calculated?</summary><p>EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), where P is the loan amount, r is the monthly interest rate (yearly rate ÷ 12 ÷ 100) and n is the number of months.</p></details>
+        <details><summary>How does the SIP calculator work?</summary><p>Each monthly instalment is assumed to grow at the yearly return divided by twelve, compounded monthly. With a step-up, the instalment rises by that percentage every year. Real returns move up and down, so treat the result as an illustration.</p></details>
+        <details><summary>Which income tax rates does the calculator use?</summary><p>The slabs announced in Budget 2025, which Budget 2026 left unchanged. New regime: nil up to ₹4 lakh, then 5%, 10%, 15%, 20% and 25% on each further ₹4 lakh, and 30% above ₹24 lakh, with a ₹75,000 standard deduction for salaried people and no tax on taxable income up to ₹12 lakh. Old regime: nil up to ₹2.5 lakh (₹3 lakh from age 60, ₹5 lakh from age 80), then 5%, 20% and 30%, with a ₹50,000 standard deduction. A 4% cess and any surcharge are added.</p></details>
+        <details><summary>Is the income tax result exact?</summary><p>It is an estimate for ordinary income such as salary, pension and interest. It does not handle capital gains, other special-rate income or every deduction, so check with the Income Tax Department’s calculator or a tax professional before filing.</p></details>
+        <details><summary>How do I convert CGPA to percentage?</summary><p>CBSE uses CGPA × 9.5. Many universities use CGPA × 10 or (CGPA − 0.75) × 10, and some have their own formula. Always use the formula your board or university publishes.</p></details>
+        <details><summary>Is my data saved or sent anywhere?</summary><p>No. Every calculation happens in your browser and nothing you type is stored or uploaded.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/calculators.js?v=33"></script>
+</body>
+</html>

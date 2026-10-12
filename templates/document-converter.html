@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown, Word, PDF &amp; HTML Converter — Free, Private | ApnaFreeTools</title>
+  <meta name="description" content="Convert Markdown to Word, PDF or HTML, turn Word, PDF or HTML into Markdown, and convert Word to PDF or HTML, instantly in your browser. Free, no sign-up, and your files never leave your device.">
+  <link rel="canonical" href="https://apnafreetools.com/">
+  <meta property="og:title" content="Markdown, Word, PDF &amp; HTML Converter — ApnaFreeTools">
+  <meta property="og:description" content="Free Markdown, Word, PDF and HTML converter that runs entirely in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" aria-current="page" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          100% private — files never leave your browser
+        </span>
+        <h1>Markdown, Word, PDF <span class="swap">&amp;</span> HTML Converter</h1>
+        <p class="lead">Convert between Markdown, Word, PDF and HTML in one place. Free, instant, no sign-up.</p>
+      </div>
+    </section>
+
+    <section class="container" id="converter" aria-label="Converter">
+      <div class="tool">
+        <div class="tool-top">
+          <div class="segmented" role="tablist" aria-label="Conversion direction">
+            <button type="button" role="tab" id="tab-fromMd" class="seg is-active" aria-selected="true" aria-controls="panel-fromMd" data-mode="fromMd">From Markdown <small>to DOCX, PDF, HTML</small></button>
+            <button type="button" role="tab" id="tab-toMd" class="seg" aria-selected="false" aria-controls="panel-toMd" data-mode="toMd" tabindex="-1">To Markdown <small>from DOCX, PDF, HTML</small></button>
+            <button type="button" role="tab" id="tab-fromDocx" class="seg" aria-selected="false" aria-controls="panel-fromDocx" data-mode="fromDocx" tabindex="-1">From Word <small>DOCX to PDF, HTML</small></button>
+          </div>
+        </div>
+
+        <!-- Markdown → DOCX / PDF / HTML -->
+        <div class="panel" id="panel-fromMd" role="tabpanel" aria-labelledby="tab-fromMd">
+          <div class="panes">
+            <div class="pane" id="mdPane">
+              <div class="pane-head">
+                <span class="pane-title">Markdown</span>
+                <div class="pane-actions">
+                  <button type="button" class="btn btn-ghost btn-sm" id="mdUploadBtn">Upload .md</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="mdSampleBtn">Sample</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="mdClearBtn">Clear</button>
+                  <input type="file" id="mdFile" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden>
+                </div>
+              </div>
+              <textarea id="mdInput" class="editor" spellcheck="false" aria-label="Markdown input" placeholder="Type or paste Markdown here, or drop a .md file…"></textarea>
+              <div class="drop-hint" aria-hidden="true">Drop your .md file</div>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <span class="pane-title">Preview</span>
+                <span class="pane-meta" id="mdStats"></span>
+              </div>
+              <div id="mdPreview" class="preview prose" aria-live="polite"></div>
+            </div>
+          </div>
+          <div class="tool-foot">
+            <label class="filename">
+              <span>File name</span>
+              <span class="filename-field"><input type="text" id="outName" value="document" spellcheck="false" autocomplete="off"></span>
+            </label>
+            <div class="foot-actions">
+              <button type="button" class="btn btn-primary" id="downloadDocxBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>DOCX</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="downloadPdfBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>PDF</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="downloadHtmlBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>HTML</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOCX / PDF / HTML → Markdown -->
+        <div class="panel" id="panel-toMd" role="tabpanel" aria-labelledby="tab-toMd" hidden>
+          <div class="panes">
+            <div class="pane">
+              <div class="pane-head">
+                <span class="pane-title">Source</span>
+                <div class="pane-actions">
+                  <label class="check"><input type="checkbox" id="embedImages"> Keep images</label>
+                  <button type="button" class="btn btn-ghost btn-sm" id="pasteHtmlBtn" aria-pressed="false">Paste HTML</button>
+                </div>
+              </div>
+              <div class="dropzone" id="fileDrop" role="button" tabindex="0" aria-label="Choose a .docx, .pdf or .html file">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+                <p class="dz-title">Drop a .docx, .pdf or .html file</p>
+                <p class="dz-sub">or <span class="link">browse your device</span></p>
+                <p class="dz-file" id="srcFileInfo" hidden></p>
+                <input type="file" id="srcFile" accept=".docx,.pdf,.html,.htm,text/html,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+              </div>
+              <textarea id="htmlInput" class="editor" spellcheck="false" aria-label="HTML input" placeholder="Paste HTML here…" hidden></textarea>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <div class="mini-tabs" role="tablist" aria-label="Output view">
+                  <button type="button" role="tab" class="mini-tab is-active" aria-selected="true" data-view="raw">Markdown</button>
+                  <button type="button" role="tab" class="mini-tab" aria-selected="false" data-view="preview">Preview</button>
+                </div>
+                <div class="pane-actions">
+                  <button type="button" class="btn btn-ghost btn-sm" id="copyMdBtn" disabled>Copy</button>
+                </div>
+              </div>
+              <textarea id="mdOutput" class="editor" spellcheck="false" aria-label="Converted Markdown" placeholder="Your converted Markdown will appear here…"></textarea>
+              <div id="mdOutputPreview" class="preview prose" hidden></div>
+            </div>
+          </div>
+          <div class="tool-foot">
+            <label class="filename">
+              <span>File name</span>
+              <span class="filename-field"><input type="text" id="mdName" value="document" spellcheck="false" autocomplete="off"><em>.md</em></span>
+            </label>
+            <div class="foot-actions">
+              <button type="button" class="btn btn-primary" id="downloadMdBtn" disabled>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>Markdown</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOCX → PDF / HTML -->
+        <div class="panel" id="panel-fromDocx" role="tabpanel" aria-labelledby="tab-fromDocx" hidden>
+          <div class="panes">
+            <div class="pane">
+              <div class="pane-head">
+                <span class="pane-title">Word document</span>
+              </div>
+              <div class="dropzone" id="docxDrop" role="button" tabindex="0" aria-label="Choose a .docx file">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+                <p class="dz-title">Drop a .docx file here</p>
+                <p class="dz-sub">or <span class="link">browse your device</span></p>
+                <p class="dz-file" id="docxFileInfo" hidden></p>
+                <input type="file" id="docxFile" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+              </div>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <span class="pane-title">Preview</span>
+              </div>
+              <div id="docxPreview" class="preview prose"><p class="empty">Your document preview will appear here.</p></div>
+            </div>
+          </div>
+          <div class="tool-foot">
+            <label class="filename">
+              <span>File name</span>
+              <span class="filename-field"><input type="text" id="docxOutName" value="document" spellcheck="false" autocomplete="off"></span>
+            </label>
+            <div class="foot-actions">
+              <button type="button" class="btn btn-primary" id="docxToPdfBtn" disabled>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>PDF</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="docxToHtmlBtn" disabled>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>HTML</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="features">
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>Private by design</h3>
+          <p>Conversion happens in your browser. Nothing is uploaded to a server, so confidential documents stay on your device.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>Instant results</h3>
+          <p>See a live preview as you type and download the finished file in one click. No queue and no waiting.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+          <h3>Formatting preserved</h3>
+          <p>Headings, bold and italic, lists, tables, links, quotes, code blocks and images are kept in your Word, PDF and HTML files.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
+          <h3>Free, no sign-up</h3>
+          <p>No account, no watermark and no file limits. Open the page and convert as many documents as you need.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><h3>Pick a direction</h3><p>Choose From Markdown, To Markdown or From Word at the top of the converter.</p></div></li>
+        <li><span class="step-n">2</span><div><h3>Add your content</h3><p>Paste or type Markdown or HTML, or drop in a <code>.md</code>, <code>.docx</code>, <code>.pdf</code> or <code>.html</code> file.</p></div></li>
+        <li><span class="step-n">3</span><div><h3>Download</h3><p>Check the preview, name the file and download it as Word, PDF, HTML or Markdown.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is this converter really free?</summary>
+          <p>Yes. There is no sign-up, no watermark and no limit on the number of conversions.</p>
+        </details>
+        <details>
+          <summary>Are my files uploaded anywhere?</summary>
+          <p>No. Every conversion runs entirely in your browser, so your documents never leave your device.</p>
+        </details>
+        <details>
+          <summary>Which Markdown features are supported?</summary>
+          <p>Headings, paragraphs, bold, italic, strikethrough, inline code, fenced code blocks, ordered, unordered and task lists (including nested lists), tables, block quotes, links, horizontal rules and images.</p>
+        </details>
+        <details>
+          <summary>Which conversions are available?</summary>
+          <p>Markdown to DOCX, PDF or HTML; DOCX, PDF or HTML to Markdown; and DOCX to PDF or HTML.</p>
+        </details>
+        <details>
+          <summary>Does Word to PDF keep the exact layout?</summary>
+          <p>It keeps the content and structure — headings, text formatting, lists, tables, links and images — in a clean, consistent style. Original fonts, colours, page margins, headers and footers are not reproduced.</p>
+        </details>
+        <details>
+          <summary>How accurate is PDF to Markdown?</summary>
+          <p>A PDF stores positioned text rather than structure, so headings, lists, bold text, code and simple tables are detected from the layout. Text-based PDFs work well; complex layouts such as multiple columns may need a little clean-up. Scanned PDFs (pictures of pages) contain no text to extract.</p>
+        </details>
+        <details>
+          <summary>Can I convert older .doc files?</summary>
+          <p>Only the modern <code>.docx</code> format is supported. Open a <code>.doc</code> file in Word or Google Docs and save it as <code>.docx</code> first.</p>
+        </details>
+        <details>
+          <summary>What happens to images?</summary>
+          <p>Markdown → DOCX and Markdown → PDF embed PNG and JPEG images that your browser is able to load. DOCX → Markdown drops images by default; tick “Keep images” to embed them in the Markdown as base64 data. DOCX → PDF and DOCX → HTML keep the document’s images. Images inside a PDF are not extracted.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/turndown@7.2.0/dist/turndown.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/turndown-plugin-gfm@1.0.2/dist/turndown-plugin-gfm.js"></script>
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/md-to-docx.js?v=33"></script>
+  <script defer src="js/docx-to-md.js?v=33"></script>
+  <script defer src="js/md-to-pdf.js?v=33"></script>
+  <script defer src="js/pdf-to-md.js?v=33"></script>
+  <script defer src="js/html-doc.js?v=33"></script>
+  <script defer src="js/app.js?v=33"></script>
+</body>
+</html>

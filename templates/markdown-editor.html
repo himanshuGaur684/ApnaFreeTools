@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown Editor with Live Preview — Free Online | ApnaFreeTools</title>
+  <meta name="description" content="Write Markdown in your browser with a live preview, formatting toolbar and autosave. Download as Markdown, Word, PDF or HTML. Free, private, no sign-up.">
+  <link rel="canonical" href="https://apnafreetools.com/markdown-editor.html">
+  <meta property="og:title" content="Markdown Editor with Live Preview — Free Online — ApnaFreeTools">
+  <meta property="og:description" content="Write Markdown in your browser with a live preview, formatting toolbar and autosave. Download as Markdown, Word, PDF or HTML. Free, private, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/markdown-editor.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" aria-current="page" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <h1>Markdown Editor <span class="swap">with</span> Live Preview</h1>
+        <p class="lead">Write on the left, see the result on the right. Your draft saves itself in this browser.</p>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Markdown editor">
+      <div class="tool editor-tool">
+        <div class="md-toolbar" id="edToolbar" role="toolbar" aria-label="Formatting">
+            <button type="button" class="tb-btn tb-bold" data-cmd="bold" title="Bold (Ctrl/Cmd + B)" aria-label="Bold (Ctrl/Cmd + B)">B</button>
+            <button type="button" class="tb-btn tb-italic" data-cmd="italic" title="Italic (Ctrl/Cmd + I)" aria-label="Italic (Ctrl/Cmd + I)">I</button>
+            <button type="button" class="tb-btn tb-strike" data-cmd="strike" title="Strikethrough" aria-label="Strikethrough">S</button>
+            <span class="tb-sep" aria-hidden="true"></span>
+            <button type="button" class="tb-btn" data-cmd="h1" title="Heading 1" aria-label="Heading 1">H1</button>
+            <button type="button" class="tb-btn" data-cmd="h2" title="Heading 2" aria-label="Heading 2">H2</button>
+            <button type="button" class="tb-btn" data-cmd="h3" title="Heading 3" aria-label="Heading 3">H3</button>
+            <span class="tb-sep" aria-hidden="true"></span>
+            <button type="button" class="tb-btn" data-cmd="ul" title="Bulleted list" aria-label="Bulleted list">• List</button>
+            <button type="button" class="tb-btn" data-cmd="ol" title="Numbered list" aria-label="Numbered list">1. List</button>
+            <button type="button" class="tb-btn" data-cmd="task" title="Task list" aria-label="Task list">☑ Task</button>
+            <button type="button" class="tb-btn" data-cmd="quote" title="Quote" aria-label="Quote">“ Quote</button>
+            <span class="tb-sep" aria-hidden="true"></span>
+            <button type="button" class="tb-btn" data-cmd="link" title="Link (Ctrl/Cmd + K)" aria-label="Link (Ctrl/Cmd + K)">Link</button>
+            <button type="button" class="tb-btn" data-cmd="image" title="Image" aria-label="Image">Image</button>
+            <button type="button" class="tb-btn" data-cmd="code" title="Inline code" aria-label="Inline code">&lt;/&gt;</button>
+            <button type="button" class="tb-btn" data-cmd="codeblock" title="Code block" aria-label="Code block">{ } Block</button>
+            <button type="button" class="tb-btn" data-cmd="table" title="Table" aria-label="Table">Table</button>
+            <button type="button" class="tb-btn" data-cmd="hr" title="Horizontal rule" aria-label="Horizontal rule">— Rule</button>
+            <span class="tb-spacer"></span>
+            <div class="mini-tabs view-switch" role="group" aria-label="View">
+              <button type="button" class="mini-tab" data-view="edit" aria-pressed="false">Edit</button>
+              <button type="button" class="mini-tab view-split is-active" data-view="split" aria-pressed="true">Split</button>
+              <button type="button" class="mini-tab" data-view="preview" aria-pressed="false">Preview</button>
+            </div>
+        </div>
+        <div class="panes" id="edPanes" data-view="split">
+          <div class="pane pane-edit" id="edPaneEdit">
+            <div class="pane-head">
+              <span class="pane-title">Markdown</span>
+              <div class="pane-actions">
+                <button type="button" class="btn btn-ghost btn-sm" id="edOpenBtn">Open .md</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="edCopyBtn">Copy</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="edClearBtn">Clear</button>
+                <input type="file" id="edFile" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden>
+              </div>
+            </div>
+            <textarea id="edInput" class="editor" spellcheck="true" aria-label="Markdown editor" placeholder="Start writing Markdown…"></textarea>
+            <div class="drop-hint" aria-hidden="true">Drop your .md file</div>
+          </div>
+          <div class="pane pane-preview">
+            <div class="pane-head">
+              <span class="pane-title">Preview</span>
+              <span class="pane-meta" id="edStats"></span>
+            </div>
+            <div id="edPreview" class="preview prose" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <label class="filename">
+            <span>File name</span>
+            <span class="filename-field"><input type="text" id="edName" value="document" spellcheck="false" autocomplete="off"></span>
+          </label>
+          <span class="pane-meta save-status" id="edStatus" aria-live="polite"></span>
+          <div class="foot-actions">
+              <button type="button" class="btn btn-primary" id="edMdBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>MD</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="edDocxBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>DOCX</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="edPdfBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>PDF</span>
+              </button>
+              <button type="button" class="btn btn-secondary" id="edHtmlBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                <span><span class="btn-verb">Download </span>HTML</span>
+              </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cards cards-3">
+        <article class="card"><h3>Live preview</h3><p>The preview updates as you type and follows your scroll position, so you always see what you are writing.</p></article>
+        <article class="card"><h3>Autosave, kept private</h3><p>Your draft is saved in this browser only. Nothing is uploaded, and it is still here when you come back.</p></article>
+        <article class="card"><h3>Export anywhere</h3><p>Download your document as Markdown, Word (DOCX), PDF or a standalone HTML page.</p></article>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>Where is my writing saved?</summary><p>In your browser’s local storage on this device. It is never sent to a server. Clearing your browser data, or using a private window, removes it — download a copy of anything you want to keep.</p></details>
+        <details><summary>Which Markdown syntax is supported?</summary><p>GitHub Flavored Markdown: headings, bold, italic, strikethrough, lists, task lists, tables, links, images, quotes, inline code and fenced code blocks.</p></details>
+        <details><summary>Are there keyboard shortcuts?</summary><p>Ctrl/Cmd + B for bold, Ctrl/Cmd + I for italic, Ctrl/Cmd + K for a link, and Tab to indent.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/md-to-docx.js?v=33"></script>
+  <script defer src="js/md-to-pdf.js?v=33"></script>
+  <script defer src="js/html-doc.js?v=33"></script>
+  <script defer src="js/editor.js?v=33"></script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Developer Tools: JSON, Base64, JWT, UUID, Hash, QR | ApnaFreeTools</title>
+  <meta name="description" content="Free online developer tools: JSON formatter, JSON to CSV and YAML, text compare, regex tester, timestamp converter, Base64 and URL encode and decode, JWT decoder, and UUID, hash, password and QR code generators. Everything runs in your browser — nothing is uploaded.">
+  <link rel="canonical" href="https://apnafreetools.com/developer-tools.html">
+  <meta property="og:title" content="Free Developer Tools: JSON, Base64, JWT, UUID, Hash, QR — ApnaFreeTools">
+  <meta property="og:description" content="Free online developer tools: JSON formatter, JSON to CSV and YAML, text compare, regex tester, timestamp converter, Base64 and URL encode and decode, JWT decoder, and UUID, hash, password and QR code generators. Everything runs in your browser — nothing is uploaded.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/developer-tools.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" aria-current="page" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Runs in your browser — tokens and passwords are never uploaded
+        </span>
+        <h1>Free Developer Tools</h1>
+        <p class="lead">Seventeen tools in one place: format and convert JSON, compare text, test regex and cron, convert colours and text case, and generate UUIDs, hashes, passwords, QR codes and sample data.</p>
+      </div>
+    </section>
+
+    <section class="container" id="tools" aria-label="Developer tools">
+      <div class="tool calc-tool">
+        <div class="calc-nav" role="tablist" aria-label="Tool">
+          <span class="calc-group">Format &amp; convert</span>
+          <button type="button" role="tab" id="tab-json" class="calc-tab is-active" aria-selected="true" aria-controls="panel-json" data-mode="json">JSON formatter</button>
+          <button type="button" role="tab" id="tab-csv" class="calc-tab" aria-selected="false" aria-controls="panel-csv" data-mode="csv" tabindex="-1">JSON ↔ CSV</button>
+          <button type="button" role="tab" id="tab-yaml" class="calc-tab" aria-selected="false" aria-controls="panel-yaml" data-mode="yaml" tabindex="-1">JSON ↔ YAML</button>
+          <button type="button" role="tab" id="tab-base64" class="calc-tab" aria-selected="false" aria-controls="panel-base64" data-mode="base64" tabindex="-1">Base64</button>
+          <button type="button" role="tab" id="tab-url" class="calc-tab" aria-selected="false" aria-controls="panel-url" data-mode="url" tabindex="-1">URL encode</button>
+          <button type="button" role="tab" id="tab-jwt" class="calc-tab" aria-selected="false" aria-controls="panel-jwt" data-mode="jwt" tabindex="-1">JWT decoder</button>
+          <span class="calc-group">Compare &amp; test</span>
+          <button type="button" role="tab" id="tab-diff" class="calc-tab" aria-selected="false" aria-controls="panel-diff" data-mode="diff" tabindex="-1">Text compare</button>
+          <button type="button" role="tab" id="tab-regex" class="calc-tab" aria-selected="false" aria-controls="panel-regex" data-mode="regex" tabindex="-1">Regex tester</button>
+          <button type="button" role="tab" id="tab-timestamp" class="calc-tab" aria-selected="false" aria-controls="panel-timestamp" data-mode="timestamp" tabindex="-1">Timestamp</button>
+          <button type="button" role="tab" id="tab-cron" class="calc-tab" aria-selected="false" aria-controls="panel-cron" data-mode="cron" tabindex="-1">Cron explainer</button>
+          <span class="calc-group">Text &amp; colour</span>
+          <button type="button" role="tab" id="tab-case" class="calc-tab" aria-selected="false" aria-controls="panel-case" data-mode="case" tabindex="-1">Case &amp; word count</button>
+          <button type="button" role="tab" id="tab-colour" class="calc-tab" aria-selected="false" aria-controls="panel-colour" data-mode="colour" tabindex="-1">Colour converter</button>
+          <span class="calc-group">Generate</span>
+          <button type="button" role="tab" id="tab-uuid" class="calc-tab" aria-selected="false" aria-controls="panel-uuid" data-mode="uuid" tabindex="-1">UUID</button>
+          <button type="button" role="tab" id="tab-hash" class="calc-tab" aria-selected="false" aria-controls="panel-hash" data-mode="hash" tabindex="-1">Hash</button>
+          <button type="button" role="tab" id="tab-password" class="calc-tab" aria-selected="false" aria-controls="panel-password" data-mode="password" tabindex="-1">Password</button>
+          <button type="button" role="tab" id="tab-qr" class="calc-tab" aria-selected="false" aria-controls="panel-qr" data-mode="qr" tabindex="-1">QR code</button>
+          <button type="button" role="tab" id="tab-fake" class="calc-tab" aria-selected="false" aria-controls="panel-fake" data-mode="fake" tabindex="-1">Lorem &amp; sample data</button>
+        </div>
+        <div class="calc-body">
+
+          <!-- JSON -->
+          <div class="panel" id="panel-json" role="tabpanel" aria-labelledby="tab-json">
+            <div class="calc-head">
+              <h2 class="calc-title">JSON Formatter &amp; Validator</h2>
+              <p class="calc-sub">Pretty-print, minify and check JSON. Errors are shown with their line and column.</p>
+              <div class="tool-row">
+                <button type="button" class="btn btn-primary btn-sm" id="jsonFormat">Format</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="jsonMinify">Minify</button>
+                <label class="bar-field">Indent <select class="field" id="jsonIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tab</option></select></label>
+                <label class="check"><input type="checkbox" id="jsonSort"> Sort keys</label>
+                <button type="button" class="btn btn-ghost btn-sm" id="jsonSample">Sample</button>
+              </div>
+            </div>
+            <div class="split split-flush">
+              <div><label class="form-field"><span class="label-row">Input</span><textarea class="code-area code-xl" id="jsonInput" spellcheck="false" placeholder='{"paste": "JSON here"}'></textarea></label></div>
+              <div><label class="form-field"><span class="label-row">Output <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#jsonOutput">Copy</button><button type="button" class="btn btn-ghost btn-sm" id="jsonDownload">Download</button></span></span><textarea class="code-area code-xl" id="jsonOutput" spellcheck="false" readonly></textarea></label></div>
+            </div>
+            <p class="status status-pad" id="jsonStatus" aria-live="polite"></p>
+          </div>
+
+          <!-- JSON ↔ CSV Converter -->
+          <div class="panel" id="panel-csv" role="tabpanel" aria-labelledby="tab-csv" hidden>
+            <div class="calc-head">
+              <h2 class="calc-title">JSON ↔ CSV Converter</h2>
+              <p class="calc-sub">Turn a JSON list into a spreadsheet-ready CSV, or a CSV back into JSON. Nested fields become columns like address.city.</p>
+              <div class="tool-row">
+                <span class="chips chips-flush" id="csvDirection"><button type="button" class="chip is-active" data-value="forward">JSON → CSV</button><button type="button" class="chip" data-value="back">CSV → JSON</button></span>
+                <label class="check" id="csvOptions" hidden><input type="checkbox" id="csvTyped" checked> Detect numbers and true/false</label>
+                <button type="button" class="btn btn-ghost btn-sm" id="csvSwap" title="Use the result as the new input">⇄ Swap</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="csvSample">Sample</button>
+              </div>
+            </div>
+            <div class="split split-flush">
+              <div><label class="form-field"><span class="label-row" id="csvInputLabel">JSON</span><textarea class="code-area code-xl" id="csvInput" spellcheck="false"></textarea></label></div>
+              <div><label class="form-field"><span class="label-row"><span id="csvOutputLabel">CSV</span> <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#csvOutput">Copy</button><button type="button" class="btn btn-ghost btn-sm" id="csvDownload">Download</button></span></span><textarea class="code-area code-xl" id="csvOutput" spellcheck="false" readonly></textarea></label></div>
+            </div>
+            <p class="status status-pad" id="csvStatus" aria-live="polite"></p>
+          </div>
+
+          <!-- JSON ↔ YAML Converter -->
+          <div class="panel" id="panel-yaml" role="tabpanel" aria-labelledby="tab-yaml" hidden>
+            <div class="calc-head">
+              <h2 class="calc-title">JSON ↔ YAML Converter</h2>
+              <p class="calc-sub">Convert between JSON and YAML for config files.</p>
+              <div class="tool-row">
+                <span class="chips chips-flush" id="yamlDirection"><button type="button" class="chip is-active" data-value="forward">JSON → YAML</button><button type="button" class="chip" data-value="back">YAML → JSON</button></span>
+                
+                <button type="button" class="btn btn-ghost btn-sm" id="yamlSwap" title="Use the result as the new input">⇄ Swap</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="yamlSample">Sample</button>
+              </div>
+            </div>
+            <div class="split split-flush">
+              <div><label class="form-field"><span class="label-row" id="yamlInputLabel">JSON</span><textarea class="code-area code-xl" id="yamlInput" spellcheck="false"></textarea></label></div>
+              <div><label class="form-field"><span class="label-row"><span id="yamlOutputLabel">YAML</span> <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#yamlOutput">Copy</button><button type="button" class="btn btn-ghost btn-sm" id="yamlDownload">Download</button></span></span><textarea class="code-area code-xl" id="yamlOutput" spellcheck="false" readonly></textarea></label></div>
+            </div>
+            <p class="status status-pad" id="yamlStatus" aria-live="polite"></p>
+          </div>
+
+          <!-- Base64 -->
+          <div class="panel" id="panel-base64" role="tabpanel" aria-labelledby="tab-base64" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Base64 Encode &amp; Decode</h2>
+                <p class="calc-sub">Works with any language and emoji (UTF-8).</p>
+                <div class="form-field">Direction<span class="chips chips-flush" id="b64Mode"><button type="button" class="chip is-active" data-value="encode">Encode</button><button type="button" class="chip" data-value="decode">Decode</button></span></div>
+                <label class="form-field"><span id="b64InputLabel">Text to encode</span><textarea class="code-area" id="b64Input" spellcheck="false">Hello, नमस्ते 👋</textarea></label>
+                <label class="check" id="b64UrlSafeRow"><input type="checkbox" id="b64UrlSafe"> URL-safe (use - and _, no padding)</label>
+                <p class="note" id="b64FileRow"><button type="button" class="btn btn-secondary btn-sm" id="b64FileBtn">Encode a file instead</button><input type="file" id="b64File" hidden></p>
+              </div>
+              <div>
+                <label class="form-field"><span class="label-row">Result <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#b64Output">Copy</button></span></span><textarea class="code-area code-tall" id="b64Output" spellcheck="false" readonly></textarea></label>
+                <p class="status" id="b64Status" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- URL -->
+          <div class="panel" id="panel-url" role="tabpanel" aria-labelledby="tab-url" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">URL Encode &amp; Decode</h2>
+                <p class="calc-sub">Percent-encode text for a link, or make an encoded link readable.</p>
+                <div class="form-field">Direction<span class="chips chips-flush" id="urlMode"><button type="button" class="chip is-active" data-value="encode">Encode</button><button type="button" class="chip" data-value="decode">Decode</button></span></div>
+                <label class="form-field">Text or URL<textarea class="code-area" id="urlInput" spellcheck="false">https://example.com/search?q=चाय and coffee&amp;city=New Delhi</textarea></label>
+                <label class="check"><input type="checkbox" id="urlFull"> <span id="urlFullLabel"></span></label>
+              </div>
+              <div>
+                <label class="form-field"><span class="label-row">Result <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#urlOutput">Copy</button></span></span><textarea class="code-area" id="urlOutput" spellcheck="false" readonly></textarea></label>
+                <p class="status" id="urlStatus" aria-live="polite"></p>
+                <div id="urlParamsWrap" hidden>
+                  <h3 class="sub-title">Query parameters</h3>
+                  <div class="table-scroll"><table class="data-table data-left"><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody id="urlParams"></tbody></table></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- JWT -->
+          <div class="panel" id="panel-jwt" role="tabpanel" aria-labelledby="tab-jwt" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">JWT Decoder</h2>
+                <p class="calc-sub">See the header, payload and expiry of a JSON Web Token.</p>
+                <label class="form-field">Token<textarea class="code-area code-tall" id="jwtInput" spellcheck="false" placeholder="eyJhbGciOi…"></textarea></label>
+                <p class="status" id="jwtStatus" aria-live="polite"></p>
+                <p class="note">The token is decoded on your device and never sent anywhere. The signature is shown but not verified, so do not treat a decoded token as proof that it is genuine.</p>
+              </div>
+              <div>
+                <div id="jwtResult" hidden>
+                  <label class="form-field"><span class="label-row">Header <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#jwtHeader">Copy</button></span></span><textarea class="code-area code-short" id="jwtHeader" spellcheck="false" readonly></textarea></label>
+                  <label class="form-field"><span class="label-row">Payload <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#jwtPayload">Copy</button></span></span><textarea class="code-area" id="jwtPayload" spellcheck="false" readonly></textarea></label>
+                  <div id="jwtClaimsWrap"><div class="table-scroll"><table class="data-table data-left"><tbody id="jwtClaims"></tbody></table></div></div>
+                  <div class="form-field">Signature<code class="out-code out-block" id="jwtSignature"></code></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text compare -->
+          <div class="panel" id="panel-diff" role="tabpanel" aria-labelledby="tab-diff" hidden>
+            <div class="calc-head">
+              <h2 class="calc-title">Text Compare</h2>
+              <p class="calc-sub">Paste two versions to see which lines were added, removed or changed.</p>
+              <div class="tool-row">
+                <span class="chips chips-flush" id="diffView"><button type="button" class="chip is-active" data-value="side">Side by side</button><button type="button" class="chip" data-value="unified">One column</button></span>
+                <label class="check"><input type="checkbox" id="diffSpace"> Ignore spacing</label>
+                <label class="check"><input type="checkbox" id="diffCase"> Ignore capitals</label>
+                <button type="button" class="btn btn-ghost btn-sm" id="diffSwap">⇄ Swap</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="diffSample">Sample</button>
+              </div>
+            </div>
+            <div class="split split-flush">
+              <div><label class="form-field"><span class="label-row">Original</span><textarea class="code-area code-tall" id="diffOld" spellcheck="false" placeholder="Paste the first version here"></textarea></label></div>
+              <div><label class="form-field"><span class="label-row">Changed</span><textarea class="code-area code-tall" id="diffNew" spellcheck="false" placeholder="Paste the second version here"></textarea></label></div>
+            </div>
+            <p class="status status-pad" id="diffStatus" aria-live="polite"></p>
+            <div class="diff-wrap" id="diffWrap" hidden><table class="diff-table" id="diffTable"></table></div>
+          </div>
+
+          <!-- Regex tester -->
+          <div class="panel" id="panel-regex" role="tabpanel" aria-labelledby="tab-regex" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Regex Tester</h2>
+                <p class="calc-sub">Test a JavaScript regular expression and see matches as you type.</p>
+                <label class="form-field"><span class="label-row">Pattern <code class="rx-flags" id="rxFlagsText"></code></span><input type="text" class="field field-code" id="rxPattern" spellcheck="false" autocomplete="off" value="(\d{6})|([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,})"></label>
+                <div class="form-field">Flags
+                  <span class="flag-row">
+                    <label class="check"><input type="checkbox" id="rxFlagG" checked> g <small>all matches</small></label>
+                    <label class="check"><input type="checkbox" id="rxFlagI"> i <small>ignore case</small></label>
+                    <label class="check"><input type="checkbox" id="rxFlagM"> m <small>multi-line</small></label>
+                    <label class="check"><input type="checkbox" id="rxFlagS"> s <small>dot matches newline</small></label>
+                    <label class="check"><input type="checkbox" id="rxFlagU"> u <small>unicode</small></label>
+                  </span>
+                </div>
+                <label class="form-field">Test text<textarea class="code-area code-tall" id="rxText" spellcheck="false">Send the parcel to PIN 411001 or 110001.
+Contact asha@example.com or ravi.kumar@shop.in for help.</textarea></label>
+                <label class="form-field">Replace with (optional)<input type="text" class="field field-code" id="rxReplace" spellcheck="false" autocomplete="off" placeholder="e.g. [$1]"></label>
+              </div>
+              <div>
+                <div class="form-field">Matches highlighted<div class="rx-out" id="rxOutput"></div></div>
+                <p class="status" id="rxStatus" aria-live="polite"></p>
+                <div id="rxMatchesWrap" hidden>
+                  <div class="table-scroll"><table class="data-table data-left"><thead><tr><th>#</th><th>At</th><th>Match</th><th>Groups</th></tr></thead><tbody id="rxMatches"></tbody></table></div>
+                </div>
+                <div id="rxReplaceWrap" hidden>
+                  <label class="form-field"><span class="label-row">After replacing <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#rxReplaced">Copy</button></span></span><textarea class="code-area" id="rxReplaced" spellcheck="false" readonly></textarea></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timestamp -->
+          <div class="panel" id="panel-timestamp" role="tabpanel" aria-labelledby="tab-timestamp" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Timestamp Converter</h2>
+                <p class="calc-sub">Unix time to a readable date in IST and UTC, and back.</p>
+                <div class="kv kv-flush"><div><span>Current Unix time</span><strong class="kv-copy"><span id="tsLive"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsLive">Copy</button></strong></div></div>
+                <label class="form-field form-gap">Timestamp or date<input type="text" class="field field-code" id="tsInput" spellcheck="false" autocomplete="off" inputmode="text"></label>
+                <p class="status" id="tsStatus" aria-live="polite"></p>
+                <div class="run-row"><button type="button" class="btn btn-secondary btn-sm" id="tsNow">Use the current time</button></div>
+                <h3 class="sub-title">Date and time to timestamp</h3>
+                <div class="form-grid">
+                  <label class="form-field">Date and time<input type="datetime-local" class="field" id="tsDate" step="1"></label>
+                  <label class="form-field">Time zone<select class="field" id="tsZone"><option value="ist">India (IST)</option><option value="utc">UTC</option><option value="local">This device</option></select></label>
+                </div>
+                <div class="kv"><div><span>Seconds</span><strong class="kv-copy"><span id="tsOutSeconds"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsOutSeconds">Copy</button></strong></div> <div><span>Milliseconds</span><strong class="kv-copy"><span id="tsOutMillis"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsOutMillis">Copy</button></strong></div></div>
+              </div>
+              <div>
+                <div id="tsResult" hidden>
+                  <div class="result result-top"><p class="result-label">India Standard Time</p><p class="result-big result-text" id="tsIst"></p><p class="result-sub" id="tsRelative"></p></div>
+                  <div class="kv"><div><span>UTC</span><strong class="kv-copy"><span id="tsUtc"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsUtc">Copy</button></strong></div> <div><span id="tsLocalLabel">Your time zone</span><strong class="kv-copy"><span id="tsLocal"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsLocal">Copy</button></strong></div> <div><span>ISO 8601</span><strong class="kv-copy"><span id="tsIso"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsIso">Copy</button></strong></div> <div><span>Seconds</span><strong class="kv-copy"><span id="tsSeconds"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsSeconds">Copy</button></strong></div> <div><span>Milliseconds</span><strong class="kv-copy"><span id="tsMillis"></span><button type="button" class="btn btn-ghost btn-sm" data-copy="#tsMillis">Copy</button></strong></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cron -->
+          <div class="panel" id="panel-cron" role="tabpanel" aria-labelledby="tab-cron" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Cron Expression Explainer</h2>
+                <p class="calc-sub">Type a cron schedule and read it in plain English.</p>
+                <label class="form-field">Cron expression<input type="text" class="field field-code field-lg" id="cnInput" spellcheck="false" autocomplete="off" value="0 9 * * 1-5"></label>
+                <p class="cron-legend"><span>minute</span><span>hour</span><span>day of month</span><span>month</span><span>day of week</span></p>
+                <p class="status" id="cnStatus" aria-live="polite"></p>
+                <div class="form-field">Examples
+                  <span class="chips chips-flush" id="cnPresets">
+                    <button type="button" class="chip" data-cron="*/5 * * * *">Every 5 minutes</button>
+                    <button type="button" class="chip" data-cron="0 * * * *">Hourly</button>
+                    <button type="button" class="chip" data-cron="30 6 * * *">Daily 6:30 am</button>
+                    <button type="button" class="chip" data-cron="0 9 * * 1-5">Weekdays 9 am</button>
+                    <button type="button" class="chip" data-cron="0 0 1 * *">1st of the month</button>
+                    <button type="button" class="chip" data-cron="0 22 * * 0">Sunday 10 pm</button>
+                    <button type="button" class="chip" data-cron="*/15 9-17 * * 1-5">Office hours</button>
+                  </span>
+                </div>
+                <p class="note">Standard 5-part cron as used by Linux crontab, GitHub Actions and most schedulers. Names like MON or JAN and shortcuts like @daily also work. Run times are shown in this device’s time zone; servers often run cron in UTC.</p>
+              </div>
+              <div>
+                <div id="cnResult">
+                  <div class="result result-top"><p class="result-label">This runs</p><p class="result-big result-text" id="cnText"></p></div>
+                  <h3 class="sub-title">Next 5 runs</h3>
+                  <ol class="run-list" id="cnNext"></ol>
+                  <h3 class="sub-title">The five parts</h3>
+                  <div class="table-scroll"><table class="data-table data-left"><thead><tr><th>Part</th><th>Value</th><th>Matches</th></tr></thead><tbody id="cnFields"></tbody></table></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case converter -->
+          <div class="panel" id="panel-case" role="tabpanel" aria-labelledby="tab-case" hidden>
+            <div class="calc-head">
+              <h2 class="calc-title">Case Converter &amp; Word Counter</h2>
+              <p class="calc-sub">Count words and characters, and change text to any case.</p>
+              <div class="stats">
+                <div class="stat"><strong id="csWords">0</strong><span>Words</span></div> <div class="stat"><strong id="csChars">0</strong><span>Characters</span></div> <div class="stat"><strong id="csCharsNoSpace">0</strong><span>Without spaces</span></div> <div class="stat"><strong id="csSentences">0</strong><span>Sentences</span></div> <div class="stat"><strong id="csParagraphs">0</strong><span>Paragraphs</span></div> <div class="stat"><strong id="csLines">0</strong><span>Lines</span></div>
+                <div class="stat"><strong id="csRead">—</strong><span>Reading time</span></div>
+              </div>
+            </div>
+            <div class="split split-flush">
+              <div><label class="form-field"><span class="label-row">Your text</span><textarea class="code-area code-tall code-prose" id="csInput" spellcheck="false">the quick brown fox jumps over the lazy dog. it was a sunny morning in pune!</textarea></label></div>
+              <div><label class="form-field"><span class="label-row">Converted <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#csOutput">Copy</button></span></span><textarea class="code-area code-tall code-prose" id="csOutput" spellcheck="false" readonly></textarea></label></div>
+            </div>
+            <div class="calc-foot">
+              <span class="chips chips-flush" id="csModes"><button type="button" class="chip is-active" data-value="title">Title Case</button><button type="button" class="chip" data-value="sentence">Sentence case</button><button type="button" class="chip" data-value="upper">UPPERCASE</button><button type="button" class="chip" data-value="lower">lowercase</button><button type="button" class="chip" data-value="camel">camelCase</button><button type="button" class="chip" data-value="pascal">PascalCase</button><button type="button" class="chip" data-value="snake">snake_case</button><button type="button" class="chip" data-value="kebab">kebab-case</button><button type="button" class="chip" data-value="constant">CONSTANT_CASE</button></span>
+            </div>
+          </div>
+
+          <!-- Colour -->
+          <div class="panel" id="panel-colour" role="tabpanel" aria-labelledby="tab-colour" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Colour Converter &amp; Picker</h2>
+                <p class="calc-sub">Convert between HEX, RGB and HSL. Type in any box or use the picker.</p>
+                <div class="colour-top">
+                  <label class="picker" title="Pick a colour"><input type="color" id="clPicker" aria-label="Pick a colour"></label>
+                  <div class="swatch" id="clSwatch"></div>
+                </div>
+                <label class="form-field">HEX<span class="field-row"><input type="text" class="field field-code" id="clHex" spellcheck="false" autocomplete="off"><button type="button" class="btn btn-ghost btn-sm" data-copy="#clHex">Copy</button></span></label>
+                <label class="form-field">RGB<span class="field-row"><input type="text" class="field field-code" id="clRgb" spellcheck="false" autocomplete="off"><button type="button" class="btn btn-ghost btn-sm" data-copy="#clRgb">Copy</button></span></label>
+                <label class="form-field">HSL<span class="field-row"><input type="text" class="field field-code" id="clHsl" spellcheck="false" autocomplete="off"><button type="button" class="btn btn-ghost btn-sm" data-copy="#clHsl">Copy</button></span></label>
+                <p class="status" id="clStatus" aria-live="polite"></p>
+                <div class="form-field">Lighter and darker shades<div class="shades" id="clShades"></div></div>
+              </div>
+              <div>
+                <h3 class="sub-title sub-title-first">Contrast checker</h3>
+                <p class="calc-sub">Check that text is readable on its background (WCAG).</p>
+                <div class="form-grid">
+                  <label class="form-field">Text colour<span class="field-row"><input type="color" class="mini-picker" id="ctFgPick" aria-label="Pick text colour"><input type="text" class="field field-code" id="ctFg" spellcheck="false" autocomplete="off" value="#232a20"></span></label>
+                  <label class="form-field">Background<span class="field-row"><input type="color" class="mini-picker" id="ctBgPick" aria-label="Pick background colour"><input type="text" class="field field-code" id="ctBg" spellcheck="false" autocomplete="off" value="#f8f5ec"></span></label>
+                </div>
+                <div class="tool-row">
+                  <button type="button" class="btn btn-ghost btn-sm" id="ctSwap">⇄ Swap</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="ctUseText">Use my colour as text</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="ctUseBg">Use it as background</button>
+                </div>
+                <p class="status" id="ctStatus" aria-live="polite"></p>
+                <div id="ctResult">
+                  <div class="contrast-preview" id="ctPreview"><strong>Large heading text</strong><span>Normal body text looks like this on the background.</span></div>
+                  <div class="result"><p class="result-label">Contrast ratio</p><p class="result-big" id="ctRatio"></p></div>
+                  <div class="kv"><div><span>AA — normal text (4.5 : 1)</span><strong id="ctAA" class="badge-result"></strong></div> <div><span>AA — large text (3 : 1)</span><strong id="ctAALarge" class="badge-result"></strong></div> <div><span>AAA — normal text (7 : 1)</span><strong id="ctAAA" class="badge-result"></strong></div> <div><span>AAA — large text (4.5 : 1)</span><strong id="ctAAALarge" class="badge-result"></strong></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UUID -->
+          <div class="panel" id="panel-uuid" role="tabpanel" aria-labelledby="tab-uuid" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">UUID Generator</h2>
+                <p class="calc-sub">Random (v4) or time-ordered (v7) unique IDs.</p>
+                <div class="form-field">Version<span class="chips chips-flush" id="uuidVersion"><button type="button" class="chip is-active" data-value="4">Version 4 (random)</button><button type="button" class="chip" data-value="7">Version 7 (time-ordered)</button></span></div>
+                <label class="form-field">How many (1–500)<input type="number" class="field" id="uuidCount" min="1" max="500" value="5" inputmode="numeric"></label>
+                <label class="check"><input type="checkbox" id="uuidHyphens" checked> Hyphens</label>
+                <label class="check check-gap"><input type="checkbox" id="uuidUpper"> Uppercase</label>
+                <div class="run-row"><button type="button" class="btn btn-primary" id="uuidGenerate">Generate new</button></div>
+              </div>
+              <div>
+                <label class="form-field"><span class="label-row">UUIDs <span><button type="button" class="btn btn-ghost btn-sm" data-copy="#uuidOutput">Copy all</button></span></span><textarea class="code-area code-tall" id="uuidOutput" spellcheck="false" readonly wrap="off"></textarea></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hash -->
+          <div class="panel" id="panel-hash" role="tabpanel" aria-labelledby="tab-hash" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Hash Generator</h2>
+                <p class="calc-sub">MD5, SHA-1, SHA-256 and SHA-512 of text or a file.</p>
+                <label class="form-field">Text<textarea class="code-area" id="hashInput" spellcheck="false">hello world</textarea></label>
+                <label class="check"><input type="checkbox" id="hashUpper"> Uppercase</label>
+                <p class="note"><button type="button" class="btn btn-secondary btn-sm" id="hashFileBtn">Hash a file instead</button><input type="file" id="hashFile" hidden></p>
+                <p class="status" id="hashStatus" aria-live="polite"></p>
+              </div>
+              <div>
+                <div class="out-row"><span class="out-label">MD5</span><code class="out-code" id="hashMd5"></code><button type="button" class="btn btn-ghost btn-sm" data-copy="#hashMd5">Copy</button></div>
+                <div class="out-row"><span class="out-label">SHA-1</span><code class="out-code" id="hashSha1"></code><button type="button" class="btn btn-ghost btn-sm" data-copy="#hashSha1">Copy</button></div>
+                <div class="out-row"><span class="out-label">SHA-256</span><code class="out-code" id="hashSha256"></code><button type="button" class="btn btn-ghost btn-sm" data-copy="#hashSha256">Copy</button></div>
+                <div class="out-row"><span class="out-label">SHA-512</span><code class="out-code" id="hashSha512"></code><button type="button" class="btn btn-ghost btn-sm" data-copy="#hashSha512">Copy</button></div>
+                <p class="note">MD5 and SHA-1 are fine for checking that a file downloaded correctly, but they are not safe for storing passwords or for security.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="panel" id="panel-password" role="tabpanel" aria-labelledby="tab-password" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">Password Generator</h2>
+                <p class="calc-sub">Strong random passwords, made on your device.</p>
+                <label class="form-field">Length <output id="pwLengthValue"></output><input type="range" id="pwLength" min="6" max="64" value="16"></label>
+                <div class="check-grid">
+                  <label class="check"><input type="checkbox" id="pwUpper" checked> Uppercase A–Z</label>
+                  <label class="check"><input type="checkbox" id="pwLower" checked> Lowercase a–z</label>
+                  <label class="check"><input type="checkbox" id="pwDigits" checked> Numbers 0–9</label>
+                  <label class="check"><input type="checkbox" id="pwSymbols" checked> Symbols !@#…</label>
+                  <label class="check check-wide"><input type="checkbox" id="pwNoAmbiguous"> Leave out look-alikes (O, 0, l, 1, I)</label>
+                </div>
+              </div>
+              <div>
+                <div class="result result-top">
+                  <p class="result-label">Your password</p>
+                  <p class="result-big pw-out" id="pwOutput"></p>
+                  <div class="progress pw-meter" id="pwMeter"><i></i></div>
+                  <p class="status" id="pwStrength" aria-live="polite"></p>
+                  <div class="run-row"><button type="button" class="btn btn-primary" id="pwGenerate">Generate new</button><button type="button" class="btn btn-secondary" data-copy="#pwOutput">Copy</button></div>
+                </div>
+                <p class="note">The password is created with your browser’s secure random generator. It is not saved or sent anywhere, so copy it before you leave the page.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- QR -->
+          <div class="panel" id="panel-qr" role="tabpanel" aria-labelledby="tab-qr" hidden>
+            <div class="split">
+              <div>
+                <h2 class="calc-title">QR Code Generator</h2>
+                <p class="calc-sub">For a link or text, a UPI payment, or your Wi-Fi.</p>
+                <div class="form-field">QR code for<span class="chips chips-flush" id="qrType"><button type="button" class="chip is-active" data-value="text">Link or text</button><button type="button" class="chip" data-value="upi">UPI payment</button><button type="button" class="chip" data-value="wifi">Wi-Fi</button></span></div>
+                <div id="qrTextFields">
+                  <label class="form-field">Link or text<textarea class="code-area code-short" id="qrTextInput" spellcheck="false">https://apnafreetools.com</textarea></label>
+                </div>
+                <div id="qrUpiFields" hidden>
+                  <label class="form-field">UPI ID<input type="text" class="field" id="qrUpiId" placeholder="name@bank" autocomplete="off" spellcheck="false"></label>
+                  <label class="form-field">Payee name (optional)<input type="text" class="field" id="qrUpiName" autocomplete="off"></label>
+                  <div class="form-grid">
+                    <label class="form-field">Amount ₹ (optional)<input type="number" class="field" id="qrUpiAmount" min="0" step="any" inputmode="decimal"></label>
+                    <label class="form-field">Note (optional)<input type="text" class="field" id="qrUpiNote" autocomplete="off"></label>
+                  </div>
+                </div>
+                <div id="qrWifiFields" hidden>
+                  <label class="form-field">Network name<input type="text" class="field" id="qrWifiName" autocomplete="off" spellcheck="false"></label>
+                  <div class="form-grid">
+                    <label class="form-field">Password<input type="text" class="field" id="qrWifiPassword" autocomplete="off" spellcheck="false"></label>
+                    <label class="form-field">Security<select class="field" id="qrWifiSecurity"><option value="WPA">WPA / WPA2 / WPA3</option><option value="WEP">WEP</option><option value="nopass">None</option></select></label>
+                  </div>
+                </div>
+                <div class="form-grid">
+                  <label class="form-field">Image size<select class="field" id="qrSize"><option value="256">256 px</option><option value="512" selected>512 px</option><option value="1024">1024 px</option></select></label>
+                  <label class="form-field">Error correction<select class="field" id="qrLevel"><option value="L">Low</option><option value="M" selected>Medium</option><option value="Q">High</option><option value="H">Highest</option></select></label>
+                </div>
+              </div>
+              <div>
+                <div class="qr-stage">
+                  <canvas id="qrCanvas" width="512" height="512" hidden></canvas>
+                  <p class="empty" id="qrEmpty">Fill in the details to create a QR code.</p>
+                </div>
+                <p class="status status-wrap" id="qrStatus" aria-live="polite"></p>
+                <div class="run-row"><button type="button" class="btn btn-primary" id="qrPng" disabled>Download PNG</button><button type="button" class="btn btn-secondary" id="qrSvg" disabled>Download SVG</button></div>
+                <p class="note">Scan the code with your own phone to check it before you print or share it.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lorem ipsum & sample data -->
+          <div class="panel" id="panel-fake" role="tabpanel" aria-labelledby="tab-fake" hidden>
+            <div class="split">
+              <div id="lrBox">
+                <h2 class="calc-title">Lorem Ipsum Generator</h2>
+                <p class="calc-sub">Placeholder text for designs and mock-ups.</p>
+                <div class="form-field">Amount of<span class="chips chips-flush" id="lrType"><button type="button" class="chip is-active" data-value="paragraphs">Paragraphs</button><button type="button" class="chip" data-value="sentences">Sentences</button><button type="button" class="chip" data-value="words">Words</button></span></div>
+                <div class="form-grid">
+                  <label class="form-field">How many<input type="number" class="field" id="lrCount" min="1" max="2000" value="3" inputmode="numeric"></label>
+                  <label class="check check-field"><input type="checkbox" id="lrStart" checked> Start with “Lorem ipsum”</label>
+                </div>
+                <label class="form-field"><span class="label-row">Text <span><button type="button" class="btn btn-ghost btn-sm" id="lrGenerate">New text</button><button type="button" class="btn btn-ghost btn-sm" data-copy="#lrOutput">Copy</button></span></span><textarea class="code-area code-tall code-prose" id="lrOutput" spellcheck="false" readonly></textarea></label>
+              </div>
+              <div id="fkBox">
+                <h2 class="calc-title">Sample Data Generator</h2>
+                <p class="calc-sub">Made-up Indian names, emails, phone numbers and addresses for testing.</p>
+                <div class="form-grid">
+                  <label class="form-field">Rows (1–500)<input type="number" class="field" id="fkCount" min="1" max="500" value="10" inputmode="numeric"></label>
+                  <div class="form-field">Show as<span class="chips chips-flush" id="fkFormat"><button type="button" class="chip is-active" data-value="table">Table</button><button type="button" class="chip" data-value="json">JSON</button><button type="button" class="chip" data-value="csv">CSV</button></span></div>
+                </div>
+                <div class="check-grid check-grid-3">
+                  <label class="check"><input type="checkbox" id="fk_name" checked> Name</label>
+                  <label class="check"><input type="checkbox" id="fk_email" checked> Email</label>
+                  <label class="check"><input type="checkbox" id="fk_phone" checked> Phone</label>
+                  <label class="check"><input type="checkbox" id="fk_city" checked> City</label>
+                  <label class="check"><input type="checkbox" id="fk_state"> State</label>
+                  <label class="check"><input type="checkbox" id="fk_pin" checked> PIN code</label>
+                </div>
+                <div class="tool-row tool-row-gap">
+                  <button type="button" class="btn btn-primary btn-sm" id="fkGenerate">New data</button>
+                  <button type="button" class="btn btn-ghost btn-sm" data-copy="#fkOutput">Copy</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="fkDownload">Download</button>
+                </div>
+                <p class="status" id="fkStatus" aria-live="polite"></p>
+                <div class="table-scroll table-tall" id="fkTableWrap"><table class="data-table data-left data-nowrap" id="fkTable"></table></div>
+                <textarea class="code-area code-tall" id="fkOutput" spellcheck="false" readonly wrap="off" hidden></textarea>
+                <p class="note">Everything here is invented. Emails use example.com, which never reaches a real inbox; phone numbers and PIN codes are random and may or may not exist, so do not call or message them.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>Is it safe to paste tokens, passwords or private data here?</summary><p>Everything on this page runs in your browser. Nothing you paste or generate is uploaded, logged or stored. For highly sensitive production secrets, your organisation’s own approved tools are still the safest choice.</p></details>
+        <details><summary>How does JSON to CSV handle nested data?</summary><p>Each object in the list becomes a row. Nested objects are flattened into columns named like <code>address.city</code>, and arrays are kept as JSON text in a single cell. Going from CSV to JSON, values with leading zeros such as PIN codes and phone numbers stay as text.</p></details>
+        <details><summary>Which regular expression syntax does the tester use?</summary><p>JavaScript’s, the same as browsers and Node.js. Most patterns also work in other languages, but features such as lookbehind and named groups differ slightly between engines.</p></details>
+        <details><summary>How does the timestamp converter know seconds from milliseconds?</summary><p>By the size of the number: 10 digits is read as seconds, 13 as milliseconds, 16 as microseconds and 19 as nanoseconds. The page shows which one it used.</p></details>
+        <details><summary>Which cron format does the explainer support?</summary><p>The standard five-part format: minute, hour, day of month, month and day of week. It does not cover the six- or seven-part formats with seconds or years used by Quartz and some cloud schedulers.</p></details>
+        <details><summary>What do the contrast results mean?</summary><p>WCAG asks for a contrast ratio of at least 4.5 : 1 for normal text and 3 : 1 for large text to meet level AA, and 7 : 1 and 4.5 : 1 for the stricter level AAA.</p></details>
+        <details><summary>Is the sample data real?</summary><p>No. Names are random combinations of common Indian first names and surnames, emails use the reserved example.com domain, and phone numbers and PIN codes are random digits in a realistic format.</p></details>
+        <details><summary>Does the JWT decoder verify the signature?</summary><p>No. It only decodes the header and payload so you can read them. Verifying a signature needs the secret or public key and should be done by your server.</p></details>
+        <details><summary>What is the difference between UUID v4 and v7?</summary><p>Version 4 is fully random. Version 7 starts with the current time, so the IDs sort in the order they were created, which suits database keys.</p></details>
+        <details><summary>Which hash should I use?</summary><p>Use SHA-256 for checksums and general use. MD5 and SHA-1 are only suitable for checking file integrity against a published value. None of these is right for storing passwords — use a password-hashing function such as bcrypt or Argon2 for that.</p></details>
+        <details><summary>How does the UPI QR code work?</summary><p>It encodes a standard UPI payment link with your UPI ID and, if you add them, a name, amount and note. Any UPI app can scan it. Check the UPI ID carefully and test the code with a small payment before using it.</p></details>
+        <details><summary>Do the QR codes expire?</summary><p>No. The information is stored in the code itself, with no tracking link or account behind it, so it works for as long as the link or details stay valid.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/dev-tools.js?v=33"></script>
+</body>
+</html>

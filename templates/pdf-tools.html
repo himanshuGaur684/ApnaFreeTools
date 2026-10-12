@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free PDF Tools: Merge, Split, Compress, Convert | ApnaFreeTools</title>
+  <meta name="description" content="Merge, split, reorder and rotate PDF pages, compress a PDF to under 100 KB or 200 KB, turn images into a PDF and save PDF pages as JPG or PNG. Free, private, no sign-up — files never leave your device.">
+  <link rel="canonical" href="https://apnafreetools.com/pdf-tools.html">
+  <meta property="og:title" content="Free PDF Tools: Merge, Split, Compress, Convert — ApnaFreeTools">
+  <meta property="og:description" content="Merge, split, reorder and rotate PDF pages, compress a PDF to under 100 KB or 200 KB, turn images into a PDF and save PDF pages as JPG or PNG. Free, private, no sign-up — files never leave your device.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/pdf-tools.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" aria-current="page" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          100% private — files never leave your browser
+        </span>
+        <h1>Free PDF Tools</h1>
+        <p class="lead">Merge, split, rotate and compress PDFs, turn images into a PDF, or save PDF pages as images.</p>
+      </div>
+    </section>
+
+    <section class="container" id="tools" aria-label="PDF tools">
+      <div class="tool">
+        <div class="tool-top">
+          <div class="segmented seg-4" role="tablist" aria-label="PDF tool">
+            <button type="button" role="tab" id="tab-organize" class="seg is-active" aria-selected="true" aria-controls="panel-organize" data-mode="organize">Organize <small>merge, split, rotate</small></button>
+            <button type="button" role="tab" id="tab-compress" class="seg" aria-selected="false" aria-controls="panel-compress" data-mode="compress" tabindex="-1">Compress <small>to 100 KB, 200 KB…</small></button>
+            <button type="button" role="tab" id="tab-images-to-pdf" class="seg" aria-selected="false" aria-controls="panel-images-to-pdf" data-mode="images-to-pdf" tabindex="-1">Images to PDF <small>JPG, PNG, WebP</small></button>
+            <button type="button" role="tab" id="tab-pdf-to-images" class="seg" aria-selected="false" aria-controls="panel-pdf-to-images" data-mode="pdf-to-images" tabindex="-1">PDF to Images <small>JPG or PNG</small></button>
+          </div>
+        </div>
+
+        <!-- Organize -->
+        <div class="panel" id="panel-organize" role="tabpanel" aria-labelledby="tab-organize">
+          <div id="orgEmpty">
+            <div class="dropzone dz-block" id="orgDrop" role="button" tabindex="0" aria-label="Drop PDF files here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+              <p class="dz-title">Drop PDF files here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="orgFile" accept=".pdf,application/pdf" multiple hidden>
+            </div>
+            <p class="note note-center">Add one PDF to split, rotate or reorder its pages — or several to merge them.</p>
+          </div>
+          <div id="orgWork" hidden>
+            <div class="bar">
+              <button type="button" class="btn btn-secondary btn-sm" id="orgAdd">+ Add PDFs</button>
+              <form class="range-form" id="orgRangeForm">
+                <input type="text" class="field" id="orgRange" placeholder="Select pages: 1-3, 5" aria-label="Pages to select, for example 1-3, 5" autocomplete="off">
+                <button type="submit" class="btn btn-ghost btn-sm">Select</button>
+              </form>
+              <button type="button" class="btn btn-ghost btn-sm" id="orgRotate">Rotate all</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="orgDelete" disabled>Delete selected</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="orgClear">Clear</button>
+              <span class="pane-meta bar-end" id="orgCount"></span>
+              <input type="file" id="orgFileMore" accept=".pdf,application/pdf" multiple hidden>
+            </div>
+            <div class="pg-grid" id="orgGrid"></div>
+            <p class="note note-pad">Drag pages to reorder them, or use the arrows. Click a page to select it.</p>
+          </div>
+          <div class="tool-foot">
+            <label class="filename">
+              <span>File name</span>
+              <span class="filename-field"><input type="text" id="orgName" value="document" spellcheck="false" autocomplete="off"><em>.pdf</em></span>
+            </label>
+            <div class="foot-actions foot-stack">
+            <button type="button" class="btn btn-primary" id="orgDownload" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download PDF</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="orgExtract" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Extract selected</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="orgSplit" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Split into pages</span>
+            </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compress -->
+        <div class="panel" id="panel-compress" role="tabpanel" aria-labelledby="tab-compress" hidden>
+          <div class="split">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose a PDF</h2>
+              <div class="dropzone dz-block" id="cmpDrop" role="button" tabindex="0" aria-label="Drop a PDF file here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+              <p class="dz-title">Drop a PDF file here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="cmpFile" accept=".pdf,application/pdf" hidden>
+            </div>
+              <div class="file-card" id="cmpFileCard" hidden>
+              <span class="file-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span>
+              <div class="file-info"><strong id="cmpFileName"></strong><span id="cmpFileMeta"></span></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="cmpChange">Change</button>
+            </div>
+              <div class="result" id="cmpResult" hidden>
+                <p class="result-big" id="cmpSizes"></p>
+                <p class="result-sub" id="cmpSaved"></p>
+                <button type="button" class="btn btn-primary" id="cmpDownload">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download compressed PDF</span>
+            </button>
+              </div>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Choose how small</h2>
+              <div class="opt-grid" role="radiogroup" aria-label="Compression level">
+                <label class="opt"><input type="radio" name="cmpMode" value="light"><span><strong>Best quality</strong><small>Sharp pages, moderate saving</small></span></label>
+                <label class="opt"><input type="radio" name="cmpMode" value="medium" checked><span><strong>Recommended</strong><small>Good quality, much smaller file</small></span></label>
+                <label class="opt"><input type="radio" name="cmpMode" value="strong"><span><strong>Smallest</strong><small>Lower quality, maximum saving</small></span></label>
+                <label class="opt opt-target"><input type="radio" name="cmpMode" value="target" id="cmpModeTarget"><span><strong>Target size</strong><small>For upload limits on forms and portals</small>
+                  <span class="chips" id="cmpChips">
+                    <button type="button" class="chip" data-kb="100">100 KB</button>
+                    <button type="button" class="chip is-active" data-kb="200">200 KB</button>
+                    <button type="button" class="chip" data-kb="500">500 KB</button>
+                    <button type="button" class="chip" data-kb="1024">1 MB</button>
+                    <button type="button" class="chip">Custom</button>
+                    <input type="number" class="field field-kb" id="cmpTarget" min="10" step="10" placeholder="Size in KB" aria-label="Target size in KB" hidden>
+                  </span>
+                </span></label>
+              </div>
+              <p class="note">Pages are saved as images to make the file smaller, so the text can no longer be selected or searched. Best for scans and documents you need to upload.</p>
+              <div class="progress" id="cmpProgress" hidden><i></i></div>
+              <button type="button" class="btn btn-primary btn-block" id="cmpRun" disabled><span>Compress PDF</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Images to PDF -->
+        <div class="panel" id="panel-images-to-pdf" role="tabpanel" aria-labelledby="tab-images-to-pdf" hidden>
+          <div id="imgEmpty">
+            <div class="dropzone dz-block" id="imgDrop" role="button" tabindex="0" aria-label="Drop images here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+              <p class="dz-title">Drop images here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="imgFile" accept="image/*" multiple hidden>
+            </div>
+            <p class="note note-center">JPG, PNG, WebP, GIF and BMP are supported. Each image becomes one page.</p>
+          </div>
+          <div id="imgWork" hidden>
+            <div class="bar">
+              <button type="button" class="btn btn-secondary btn-sm" id="imgAdd">+ Add images</button>
+              <label class="bar-field">Page <select class="field" id="imgSize"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">Fit to image</option></select></label>
+              <label class="bar-field">Orientation <select class="field" id="imgOrient"><option value="auto">Auto</option><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label>
+              <label class="bar-field">Margin <select class="field" id="imgMargin"><option value="0">None</option><option value="24" selected>Small</option><option value="48">Large</option></select></label>
+              <button type="button" class="btn btn-ghost btn-sm" id="imgClear">Clear</button>
+              <span class="pane-meta bar-end" id="imgCount"></span>
+              <input type="file" id="imgFileMore" accept="image/*" multiple hidden>
+            </div>
+            <div class="pg-grid" id="imgGrid"></div>
+            <p class="note note-pad">Drag images to set the page order, or use the arrows.</p>
+          </div>
+          <div class="tool-foot">
+            <label class="filename">
+              <span>File name</span>
+              <span class="filename-field"><input type="text" id="imgName" value="images" spellcheck="false" autocomplete="off"><em>.pdf</em></span>
+            </label>
+            <div class="foot-actions">
+            <button type="button" class="btn btn-primary" id="imgCreate" disabled>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Create PDF</span>
+            </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PDF to Images -->
+        <div class="panel" id="panel-pdf-to-images" role="tabpanel" aria-labelledby="tab-pdf-to-images" hidden>
+          <div class="split">
+            <div>
+              <h2 class="step-title"><span class="step-n">1</span> Choose a PDF</h2>
+              <div class="dropzone dz-block" id="p2iDrop" role="button" tabindex="0" aria-label="Drop a PDF file here">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg>
+              <p class="dz-title">Drop a PDF file here</p>
+              <p class="dz-sub">or <span class="link">browse your device</span></p>
+              <input type="file" id="p2iFile" accept=".pdf,application/pdf" hidden>
+            </div>
+              <div class="file-card" id="p2iFileCard" hidden>
+              <span class="file-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span>
+              <div class="file-info"><strong id="p2iFileName"></strong><span id="p2iFileMeta"></span></div>
+              <button type="button" class="btn btn-ghost btn-sm" id="p2iChange">Change</button>
+            </div>
+            </div>
+            <div>
+              <h2 class="step-title"><span class="step-n">2</span> Choose the image type</h2>
+              <div class="form-grid">
+                <label class="form-field">Format <select class="field" id="p2iFormat"><option value="jpg">JPG — smaller files</option><option value="png">PNG — sharpest text</option></select></label>
+                <label class="form-field">Quality <select class="field" id="p2iDpi"><option value="96">Screen (96 DPI)</option><option value="150" selected>High (150 DPI)</option><option value="300">Print (300 DPI)</option></select></label>
+              </div>
+              <div class="progress" id="p2iProgress" hidden><i></i></div>
+              <div class="run-row">
+              <button type="button" class="btn btn-primary" id="p2iRun" disabled><span>Convert to images</span></button>
+              <button type="button" class="btn btn-secondary" id="p2iZip" hidden>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download all (ZIP)</span>
+            </button>
+              </div>
+            </div>
+          </div>
+          <div class="pg-grid pg-results" id="p2iResults"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cards">
+        <article class="card"><h3>Merge &amp; split</h3><p>Combine several PDFs into one, pull out the pages you need, or split a file into single pages.</p></article>
+        <article class="card"><h3>Reorder &amp; rotate</h3><p>Drag pages into the right order and turn sideways pages upright before you download.</p></article>
+        <article class="card"><h3>Compress to a size</h3><p>Hit upload limits like 100 KB or 200 KB — the tool finds the best quality that fits.</p></article>
+        <article class="card"><h3>Images ⇄ PDF</h3><p>Turn photos and scans into one PDF, or save every PDF page as a JPG or PNG.</p></article>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>Are my PDFs uploaded to a server?</summary><p>No. Every tool on this page runs in your browser, so your files never leave your device.</p></details>
+        <details><summary>How do I compress a PDF to under 100 KB or 200 KB?</summary><p>Open the Compress tab, choose your PDF, pick “Target size” and select 100 KB, 200 KB or a custom size. The tool tries several quality levels and keeps the sharpest one that fits. Very long documents may not reach a very small target; you will be told the smallest size that is still readable.</p></details>
+        <details><summary>Does compression change my document?</summary><p>Yes. Pages are saved as images, so text can no longer be selected, searched or copied, and fillable form fields are flattened. Merge, split, reorder and rotate do not change the content of your pages at all.</p></details>
+        <details><summary>How do I merge PDF files?</summary><p>On the Organize tab, add all the PDFs, drag the pages into the order you want and choose “Download PDF”.</p></details>
+        <details><summary>Can I use password-protected PDFs?</summary><p>No. Remove the password first, then add the file.</p></details>
+        <details><summary>Is there a file size or page limit?</summary><p>There is no fixed limit, but everything runs on your device, so very large files can be slow on phones and older computers.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/pdf-tools.js?v=33"></script>
+</body>
+</html>

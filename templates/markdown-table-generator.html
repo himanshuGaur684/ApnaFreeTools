@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown Table Generator — Free Online | ApnaFreeTools</title>
+  <meta name="description" content="Build Markdown tables in a simple grid. Add rows and columns, set alignment, paste from Excel, Google Sheets or CSV, then copy the Markdown. Free, private, no sign-up.">
+  <link rel="canonical" href="https://apnafreetools.com/markdown-table-generator.html">
+  <meta property="og:title" content="Markdown Table Generator — Free Online — ApnaFreeTools">
+  <meta property="og:description" content="Build Markdown tables in a simple grid. Add rows and columns, set alignment, paste from Excel, Google Sheets or CSV, then copy the Markdown. Free, private, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apnafreetools.com/markdown-table-generator.html">
+  <meta name="theme-color" content="#2f7d4f">
+  <link rel="icon" href="assets/favicon.svg?v=33" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ApnaFreeTools home">
+        <img src="assets/favicon.svg?v=33" alt="" width="32" height="32">
+        <span>Apna<strong>FreeTools</strong></span>
+      </a>
+      <nav class="site-nav" aria-label="Tools">
+        <a href="./" title="Converter">Converter</a>
+        <a href="markdown-editor.html" title="Markdown Editor">Editor</a>
+        <a href="markdown-table-generator.html" aria-current="page" title="Table Generator">Tables</a>
+        <a href="pdf-tools.html" title="PDF Tools">PDF</a>
+        <a href="image-tools.html" title="Image Tools">Images</a>
+        <a href="calculators.html" title="Calculators">Calculators</a>
+        <a href="developer-tools.html" title="Developer Tools">Developer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-sm">
+      <div class="container">
+        <h1>Markdown Table <span class="swap">Generator</span></h1>
+        <p class="lead">Fill in the grid, or paste from Excel, Google Sheets or CSV, and copy a ready-to-use Markdown table.</p>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Markdown table generator">
+      <div class="tool">
+        <div class="tg-bar">
+          <button type="button" class="btn btn-secondary btn-sm" id="tgAddRow">+ Row</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="tgAddCol">+ Column</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="tgImport">Import</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="tgSample">Sample</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="tgClear">Clear</button>
+          <span class="pane-meta tg-size" id="tgSize"></span>
+        </div>
+        <div class="tg-import" id="tgImportPanel" hidden>
+          <label for="tgImportText">Paste cells copied from Excel or Google Sheets, CSV text, or an existing Markdown table. The first row becomes the header.</label>
+          <textarea id="tgImportText" class="editor" spellcheck="false" placeholder="Name, Role, City&#10;Asha, Designer, Pune"></textarea>
+          <div class="tg-import-actions">
+            <button type="button" class="btn btn-primary btn-sm" id="tgImportApply">Fill table</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="tgImportCancel">Cancel</button>
+          </div>
+        </div>
+        <div class="tg-scroll">
+          <table class="tg-grid" id="tgGrid"></table>
+        </div>
+
+        <div class="pane tg-output">
+          <div class="pane-head">
+            <div class="mini-tabs" role="tablist" aria-label="Output view">
+              <button type="button" role="tab" class="mini-tab is-active" aria-selected="true" data-view="raw">Markdown</button>
+              <button type="button" role="tab" class="mini-tab" aria-selected="false" data-view="preview">Preview</button>
+            </div>
+            <div class="pane-actions">
+              <label class="check"><input type="checkbox" id="tgPretty" checked> Align columns</label>
+              <button type="button" class="btn btn-ghost btn-sm" id="tgCopy">Copy</button>
+            </div>
+          </div>
+          <textarea id="tgOutput" class="editor" spellcheck="false" readonly wrap="off" aria-label="Generated Markdown table"></textarea>
+          <div id="tgPreview" class="preview prose" hidden></div>
+        </div>
+        <div class="tool-foot">
+          <label class="filename">
+            <span>File name</span>
+            <span class="filename-field"><input type="text" id="tgName" value="table" spellcheck="false" autocomplete="off"><em>.md</em></span>
+          </label>
+          <div class="foot-actions">
+            <button type="button" class="btn btn-primary" id="tgDownload">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              <span>Download Markdown</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cards cards-3">
+        <article class="card"><h3>Paste from spreadsheets</h3><p>Copy cells in Excel or Google Sheets and paste them straight into the grid. CSV text and existing Markdown tables work too.</p></article>
+        <article class="card"><h3>Alignment per column</h3><p>Click a column’s alignment button to switch between left, centre and right. The Markdown updates instantly.</p></article>
+        <article class="card"><h3>Clean, readable output</h3><p>Columns are padded so the raw Markdown lines up neatly. Untick “Align columns” for compact output.</p></article>
+      </div>
+    </section>
+
+    <section class="container section" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>How do I paste a table from Excel or Google Sheets?</summary><p>Copy the cells, click the grid cell where the data should start, and paste. The table grows to fit. You can also use Import to replace the whole table.</p></details>
+        <details><summary>Can I edit an existing Markdown table?</summary><p>Yes. Click Import, paste the Markdown table and choose “Fill table”. The cells and column alignment are loaded into the grid.</p></details>
+        <details><summary>Where do Markdown tables work?</summary><p>Anywhere that supports GitHub Flavored Markdown, including GitHub, GitLab, Notion, Obsidian, Reddit and most documentation tools.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> ApnaFreeTools · Free tools that respect your privacy.</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="./">Converter</a>
+        <a href="markdown-editor.html">Markdown Editor</a>
+        <a href="markdown-table-generator.html">Table Generator</a>
+        <a href="pdf-tools.html">PDF Tools</a>
+        <a href="image-tools.html">Image Tools</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="developer-tools.html">Developer Tools</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="js/common.js?v=33"></script>
+  <script defer src="js/table-generator.js?v=33"></script>
+</body>
+</html>
